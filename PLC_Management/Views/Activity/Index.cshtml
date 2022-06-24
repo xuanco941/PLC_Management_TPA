@@ -1,0 +1,183 @@
+﻿@{
+    Layout = "_Layout";
+}
+@using PLC_Management.Models.ActivityModel
+<link rel="stylesheet" href="~/css/Record.css" />
+
+<div class="row">
+    <div class="col-12" style="margin-top:25px;">
+        <h1 style="text-align: center;">
+            Lịch sử hoạt động
+        </h1>
+    </div>
+
+    <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
+        <div class="col-12" style="margin-bottom:10px;">
+            <select>
+                <option value="find_by_day">Lọc theo ngày</option>
+            </select>
+        </div>
+
+        <form class="search col-12" method="get">
+            <div class="box_loc">
+                <span class="span_locngay">
+                    <label style="font-weight:500;" for="tungay">Từ ngày: </label>
+
+                    <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
+                </span>
+
+                <span class="span_locngay">
+                    <label style="font-weight:500;" for="toingay">Tới ngày:</label>
+                    <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+                </span>
+
+
+                <button type="submit" style="padding-left:25px; padding-right:25px;" class="btn-primary btn btn_locngay span_locngay">Lọc</button>
+            </div>
+        </form>
+        <div class="col-12" style="display:flex; justify-content:flex-end;">
+            <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-12">
+        <div id="print_data">
+            <!--Table-->
+            <table class="table table-primary " id="table">
+
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Hành động</th>
+                        <th>Ngày</th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+
+
+
+                <tbody>
+                    @{
+                        int i = 0;
+                    }
+                    @foreach (Activity activity in ViewBag.listActivities)
+                    {
+                        DateTime dateTime = Convert.ToDateTime(activity.Time);
+                        String s = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
+                        int j = i + 1;
+                        if (i % 2 == 0)
+                        {
+                            <tr class="table-info">
+                                <th scope="row">@j</th>
+                                <td>@activity.Name</td>
+                                <td>@s</td>
+                            </tr>
+
+                        }
+                        else
+                        {
+                            <tr>
+                                <th scope="row">@j</th>
+                                <td>@activity.Name</td>
+                                <td>@s</td>
+                            </tr>
+                        }
+                        i++;
+                    }
+
+                </tbody>
+                <!--Table body-->
+
+
+
+
+
+            </table>
+        </div>
+
+
+        <div class="col-12" style="display: flex; justify-content:space-between; margin-top:15px;margin-bottom:25px;">
+            <div>
+                <div>
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            @{
+                                int page1 = ViewBag.pageCurrent - 2;
+                                int page2 = ViewBag.pageCurrent - 1;
+                                int page3 = ViewBag.pageCurrent;
+                                int page4 = ViewBag.pageCurrent + 1;
+                                int page5 = ViewBag.pageCurrent + 2;
+
+
+                                string link1 = @ViewBag.host + page1;
+                                string link2 = @ViewBag.host + page2;
+                                string link3 = @ViewBag.host + page3;
+                                string link4 = @ViewBag.host + page4;
+                                string link5 = @ViewBag.host + page5;
+
+                                string link_count_page = @ViewBag.host + @ViewBag.countPage;
+                            }
+                            @if ((@page3 - 2) > 0)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link1">@page1</a></li>
+                            }
+                            @if ((@page3 - 1) > 0)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link2">@page2</a></li>
+                            }
+
+                            <li class="page-item active"><a class="page-link" href="./@link3">@page3</a></li>
+
+                            @if (@page3 < @ViewBag.countPage)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link4">@page4</a></li>
+                            }
+
+                            @if ((@page3 + 1) < @ViewBag.countPage)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link5">@page5</a></li>
+                            }
+                            @if ((@page3 + 2) < @ViewBag.countPage)
+                            {
+                                <li style="width:28px; display: flex; justify-content:center; font-size:19px; height:100%; margin-top:9px; color:#0d6efd ">. . .</li>
+                                <li class="page-item"><a class="page-link" href="./@link_count_page">@ViewBag.countPage (hết)</a></li>
+                            }
+
+                        </ul>
+                    </nav>
+                </div>
+
+
+
+
+            </div>
+
+            <div style="height:35px;">
+                <input data-go-page="@ViewBag.countPage" style="width:100px; height:100%; text-align:center" placeholder="Trang số ..." type="number" id="input_go_page" />
+                <button data-go-page="@ViewBag.host" class="btn-primary btn" style="height:calc(100%+5px);" id="btn_go_page" type="button">Đi tới trang</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<script src="./js/table2excel.js"></script>
+<script>
+    const table2excel = new Table2Excel();
+    document.querySelector("#btn-export").addEventListener("click", () => {
+        table2excel.export(document.querySelector("#table"));
+    })
+</script>
+
+<script src="~/js/Pagination.js"></script>
