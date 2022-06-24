@@ -1,13 +1,13 @@
-﻿CREATE DATABASE PLC_MANAGEMENT
+﻿CREATE DATABASE PLC_MANAGEMENT_TPA
 GO
-USE PLC_MANAGEMENT
+USE PLC_MANAGEMENT_TPA
 GO
 
 CREATE TABLE Employee (
 Employee_ID INT IDENTITY(1,1) PRIMARY KEY,
 Employee_FullName NVARCHAR(100),
 Employee_Username VARCHAR(100) UNIQUE NOT NULL,
-Employee_Password VARCHAR(100) default 'plcmanagement',
+Employee_Password VARCHAR(100) default 'plc_management_tpa',
 Employee_IsAdmin BIT default 0
 )
 GO
@@ -19,13 +19,13 @@ Activity_Time DATETIME DEFAULT GETDATE()
 )
 GO
 
-CREATE TABLE Parameter(
-Parameter_ID VARCHAR(25) PRIMARY KEY,
-Parameter_Name NVARCHAR(300) NOT NULL,
-Parameter_ValueRange NVARCHAR(300),
-Parameter_Unit NVARCHAR(30)
-)
-GO
+--CREATE TABLE Parameter(
+--Parameter_ID VARCHAR(25) PRIMARY KEY,
+--Parameter_Name NVARCHAR(300) NOT NULL,
+--Parameter_ValueRange NVARCHAR(300),
+--Parameter_Unit NVARCHAR(30)
+--)
+--GO
 
 CREATE TABLE Result(
 Result_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -192,5 +192,5 @@ Result_DateTime BETWEEN
 
 exec AddEmployee N'Đỗ Văn Xuân', 'admin', '123', 1
 GO
-Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L'),('NH4','NH4','','');
-GO
+--Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L'),('NH4','NH4','','');
+--GO

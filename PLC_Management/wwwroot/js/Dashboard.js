@@ -305,8 +305,8 @@ const updateData = () => {
 
     }).catch((data) => {
         message_error_connect.textContent = "Mất kết nối tới PLC, đang tự động kết nối lại . . .";
-        setDisabledButton(false);
-        ReportDisconnectPLC();
+        //setDisabledButton(false);
+        //ReportDisconnectPLC();
     })
 }
 

@@ -53,16 +53,20 @@
 
         @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
         {
-            <div class="col-12" style="display:flex; justify-content:end;">
-                <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger">
-                    Xóa bản ghi trang hiện tại
-                </button>
+            <div style="display:inline-flex; justify-content:start; flex-direction:column; margin-top:35px; margin-bottom:15px;">
+                <div>
+                    <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger">
+                        Xóa bản ghi trang hiện tại
+                    </button>
+                </div>
+                <form id="xoa_tat_ca" method="post" asp-controller="Result" asp-action="DeleteAllResults" style="margin-top:10px; width:100%;">
+                    <button id="btn_xoa_tat_ca" name="btn_xoa_tat_ca" type="submit" class="btn btn-danger" style="width:100%">
+                        Xóa tất cả
+                    </button>
+                </form>
             </div>
-            <form id="xoa_tat_ca" method="post" asp-controller="Result" asp-action="DeleteAllResults" class="col-12" style="display:flex; justify-content:end; margin-top:10px;">
-                <button id="btn_xoa_tat_ca" name="btn_xoa_tat_ca" type="submit" class="btn btn-danger">
-                    Xóa tất cả
-                </button>
-            </form>
+
+
         }
 
 
@@ -227,3 +231,4 @@
 <script src="~/js/PrintResult.js"></script>
 <script src="~/js/Pagination.js"></script>
 <script src="~/js/DeleteResult.js"></script>
+<script src="~/js/format_date_result.js"></script>

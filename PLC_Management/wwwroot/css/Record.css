@@ -2,10 +2,9 @@
     color: black;
 }
 
-    .title_dashboard:hover {
+.title_dashboard:hover {
         color: black;
-    }
-
+}
 
 @media (max-width: 999px) {
     .box_loc{
