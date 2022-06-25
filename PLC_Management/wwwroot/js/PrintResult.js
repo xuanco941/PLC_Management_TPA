@@ -1,24 +1,19 @@
-﻿var pH = document.querySelector('#pH');
-var Temp = document.querySelector('#Temp');
-var TSS = document.querySelector('#TSS');
-var COD = document.querySelector('#COD');
-var NH4 = document.querySelector('#NH4');
-var tungay = document.querySelector('#tungay');
-var toingay = document.querySelector('#toingay');
-
-
-
+﻿
 document.querySelector('#btn-print').onclick = () => {
+
+    var Oxi_p = document.querySelector('#Oxi');
+    var Nitor_p = document.querySelector('#Nitor');
+    var tungay_p = document.querySelector('#tungay');
+    var toingay_p = document.querySelector('#toingay');
+
     var printdata = document.getElementById('print_data');
     printdata.style.textAlign = 'center';
 
-    var textpH = pH.checked == true ? 'pH,' : null;
-    var textTemp = Temp.checked == true ? 'Temp,' : null;
-    var textTSS = TSS.checked == true ? 'TSS,' : null;
-    var textCOD = COD.checked == true ? 'COD,' : null;
-    var textNH4 = NH4.checked == true ? 'NH4,' : null;
+    var textOxi = Oxi_p.checked == true ? 'Oxi,' : '';
+    var textNitor = Nitor_p.checked == true ? 'Nitor,' : '';
 
-    var ngay = new Date(tungay.value).toLocaleDateString('vi-VI') + ' - ' + new Date(toingay.value).toLocaleDateString('vi-VI');
+
+    var ngay = new Date(tungay_p.value).toLocaleDateString('vi-VI') + ' - ' + new Date(toingay_p.value).toLocaleDateString('vi-VI');
 
     var divChildren1 = document.createElement('div');
     divChildren1.textContent = 'BÁO CÁO GIÁ TRỊ ĐO';
@@ -27,8 +22,8 @@ document.querySelector('#btn-print').onclick = () => {
 
 
     var divChildren2 = document.createElement('div');
-    var textvalue = `${textpH} ${textTemp} ${textTSS} ${textCOD} ${textNH4}`;
-    divChildren2.textContent = '(' + textvalue.substr(0, textvalue.lastIndexOf(',')) + ')';
+    var textvalue = `${textOxi} ${textNitor}`;
+    divChildren2.textContent = '('+ textvalue.substr(0, textvalue.lastIndexOf(',')) +')';
 
     var divChildren3 = document.createElement('div');
     divChildren3.textContent = ngay;

@@ -29,7 +29,7 @@ namespace PLC_Management.Models.ResultModel
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetFloat(1), sqlDataReader.GetFloat(2), sqlDataReader.GetString(3), sqlDataReader.GetTimeSpan(4), sqlDataReader.GetString(5), sqlDataReader.GetString(6), sqlDataReader.GetDateTime(7));
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetDouble(1), sqlDataReader.GetDouble(2), sqlDataReader.GetString(3), sqlDataReader.GetString(4), sqlDataReader.GetString(5), sqlDataReader.GetTimeSpan(6), sqlDataReader.GetDateTime(7));
                 list.Add(result);
             }
             sqlConnection.Close();
@@ -57,7 +57,7 @@ namespace PLC_Management.Models.ResultModel
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetFloat(1), sqlDataReader.GetFloat(2), sqlDataReader.GetString(3), sqlDataReader.GetTimeSpan(4), sqlDataReader.GetString(5), sqlDataReader.GetString(6), sqlDataReader.GetDateTime(7));
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetDouble(1), sqlDataReader.GetDouble(2), sqlDataReader.GetString(3), sqlDataReader.GetString(4), sqlDataReader.GetString(5), sqlDataReader.GetTimeSpan(6), sqlDataReader.GetDateTime(7));
                 list.Add(result);
             }
             sqlConnection.Close();
@@ -85,7 +85,7 @@ namespace PLC_Management.Models.ResultModel
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetFloat(1), sqlDataReader.GetFloat(2), sqlDataReader.GetString(3), sqlDataReader.GetTimeSpan(4), sqlDataReader.GetString(5), sqlDataReader.GetString(6), sqlDataReader.GetDateTime(7));
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetDouble(1), sqlDataReader.GetDouble(2), sqlDataReader.GetString(3), sqlDataReader.GetString(4), sqlDataReader.GetString(5), sqlDataReader.GetTimeSpan(6), sqlDataReader.GetDateTime(7));
                 list.Add(result);
             }
             sqlConnection.Close();

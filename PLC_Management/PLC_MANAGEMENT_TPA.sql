@@ -238,4 +238,14 @@ Activity_Time BETWEEN
 
 
 exec AddEmployee N'Đỗ Văn Xuân', 'admin','123',N'Kế toán', 1
+
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
+
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
+select * from Result order by Result.Result_ID DESC
 GO

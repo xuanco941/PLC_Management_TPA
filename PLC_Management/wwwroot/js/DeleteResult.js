@@ -26,18 +26,16 @@ window.addEventListener('load', () => {
                 return parameter_ids.textContent.toString().trim();
             });
 
-            var pH = arrParameter.indexOf('pH') > -1 ? 'pH' : 'null';
-            var Temp = arrParameter.indexOf('Temp') > -1 ? 'Temp' : 'null';
-            var TSS = arrParameter.indexOf('TSS') > -1 ? 'TSS' : 'null';
-            var COD = arrParameter.indexOf('COD') > -1 ? 'COD' : 'null';
-            var NH4 = arrParameter.indexOf('NH4') > -1 ? 'NH4' : 'null';
+            var Oxi = arrParameter.indexOf('Oxi') > -1 ? 'Oxi' : 'null';
+            var Nitor = arrParameter.indexOf('Nitor') > -1 ? 'Nitor' : 'null';
+         
 
             fetch('./result/deleteresult', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ start_id, end_id, pH, Temp, TSS, COD, NH4 })
+                body: JSON.stringify({ start_id, end_id, Oxi, Nitor })
             }).then(res => res.json()).then((data) => {
                 Results.forEach((elm) => {
                     elm.remove();

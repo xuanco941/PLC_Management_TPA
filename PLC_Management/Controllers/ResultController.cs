@@ -40,14 +40,15 @@ namespace PLC_Management.Controllers
                     countPage = countPage + 1;
                 }
                 ViewBag.countPage = countPage;
-                try
-                {
+                //try
+                //{
                     results = resultBusiness.GetAllResults(page);
-                }
-                catch
-                {
-                    //Lỗi
-                }
+                //}
+                //catch
+                //{
+                //    //Lỗi
+                //    ViewBag.Loi = 3;
+                //}
                 ViewBag.listResults = results;
 
             }
