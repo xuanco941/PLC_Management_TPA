@@ -1,10 +1,6 @@
 .title_dashboard , .title_dashboard:hover{
   color: black;
 }
-.box_option{
-  margin-top: 15px;
-}
-
 
 .modal-body {
     display: flex;
