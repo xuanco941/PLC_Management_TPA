@@ -2,6 +2,7 @@
 const fullnameUpdate = document.querySelector("#fullnameUpdate");
 const usernameUpdate = document.querySelector("#usernameUpdate");
 const passwordUpdate = document.querySelector("#passwordUpdate");
+const departmentUpdate = document.querySelector("#departmentUpdate");
 const isAdminUpdateTrue = document.querySelector("#isAdminUpdateTrue");
 const isAdminUpdateFalse = document.querySelector("#isAdminUpdateFalse");
 const formUpdate = document.querySelector("#formUpdate");
@@ -28,6 +29,7 @@ window.onload = () => {
                     fullnameUpdate.value = dataUser.fullName;
                     usernameUpdate.value = dataUser.username;
                     //usernameUpdate.disabled = IDMain == dataUser.id ? true : false;
+                    departmentUpdate.value = dataUser.department;
                     passwordUpdate.value = dataUser.password;
                     if (dataUser.isAdmin == true) {
                         isAdminUpdateTrue.checked = true;
@@ -82,11 +84,12 @@ btnSave.addEventListener("click", (event) => {
     let FullName = fullnameUpdate.value;
     let Username = usernameUpdate.value;
     let Password = passwordUpdate.value;
+    let Department = departmentUpdate.value;
     let IsAdmin = isAdminUpdateTrue.checked == true ? true : false;
 
 
-    if (FullName.length != 0 && Username.length != 0 && Password != 0) {
-        let employee = { ID: dataID, FullName, Username, Password, IsAdmin };
+    if (FullName.length != 0 && Username.length != 0 && Password.length != 0) {
+        let employee = { ID: dataID, FullName, Username, Password, Department, IsAdmin };
 
         // lay record nhan vien
         let trElm = trElements.filter((e) => {
@@ -105,7 +108,8 @@ btnSave.addEventListener("click", (event) => {
                 trElm[0].children[1].textContent = dataUser.fullName;
                 trElm[0].children[2].textContent = dataUser.username;
                 trElm[0].children[3].textContent = dataUser.password;
-                trElm[0].children[4].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
+                trElm[0].children[4].textContent = dataUser.department;
+                trElm[0].children[5].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
             })
     }
     else {

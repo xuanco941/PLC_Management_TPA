@@ -26,6 +26,7 @@
                     <th>Họ Và Tên</th>
                     <th>Tài Khoản</th>
                     <th>Mật Khẩu</th>
+                    <th>Phòng Ban</th>
                     <th>Quyền Quản Trị</th>
                     <th>Sửa</th>
                     <th>Xóa</th>
@@ -43,6 +44,7 @@
                         <td>@employee.FullName</td>
                         <td class="elm_unique">@employee.Username</td>
                         <td>@employee.Password</td>
+                        <td>@employee.Department</td>
                         <td>
                             @{
                                 string isAdmin = "";
@@ -121,6 +123,10 @@
                     <input name="password" required id="password" autocomplete="off" type="text">
                 </div>
                 <div class="item_modal">
+                    <label for="department">Phòng ban</label>
+                    <input name="department" required id="department" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
                     <label for="isAdmin">Quyền Admin</label>
                     <div class="grRadio">
                         <input class="isAdmin" type="radio" value="1" name="isAdmin"> Có
@@ -160,6 +166,10 @@
                 <div class="item_modal">
                     <label for="password">Mật khẩu</label>
                     <input name="password" required id="passwordUpdate" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
+                    <label for="department">Phòng ban</label>
+                    <input name="department" required id="departmentUpdate" autocomplete="off" type="text">
                 </div>
                 <div class="item_modal">
                     <label for="isAdmin">Quyền Admin</label>

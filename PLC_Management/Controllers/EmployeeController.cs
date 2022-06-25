@@ -43,9 +43,10 @@ namespace WebApplication1.Controllers
             string _fullname = form["fullname"];
             string _username = form["username"].ToString().Trim();
             string _password = form["password"].ToString().Trim();
+            string _department = form["department"];
             bool _isAdmin = Convert.ToInt32(form["isAdmin"]) == 1 ? true : false;
 
-            Employee nhanVienModel = new Employee(_fullname, _username, _password, _isAdmin);
+            Employee nhanVienModel = new Employee(_fullname, _username, _password, _department, _isAdmin);
             EmployeeBusiness themNhanVienModel = new EmployeeBusiness();
             
             if (themNhanVienModel.AddEmployee(nhanVienModel) == true)

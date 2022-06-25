@@ -11,7 +11,7 @@ namespace PLC_Management.Models.EmployeeModel
             sqlConnection.Open();
             //Dung procedure co san tren db
             string sql = $"exec FindEmployeeByUsername '{employee.Username.ToString().Trim()}'";
-            command = new SqlCommand(sql,sqlConnection);
+            command = new SqlCommand(sql, sqlConnection);
             SqlDataReader sqlDataReader = command.ExecuteReader();
 
             // 3 la cloumn password
@@ -47,6 +47,7 @@ namespace PLC_Management.Models.EmployeeModel
                 employee.FullName = (string)sqlDataReader["Employee_FullName"];
                 employee.Username = (string)sqlDataReader["Employee_Username"];
                 employee.Password = (string)sqlDataReader["Employee_Password"];
+                employee.Department = (string)sqlDataReader["Employee_Department"];
                 employee.IsAdmin = (bool)sqlDataReader["Employee_IsAdmin"];
             }
             sqlConnection.Close();
@@ -64,7 +65,7 @@ namespace PLC_Management.Models.EmployeeModel
             while (sqlDataReader.Read())
             {
                 Employee employee = new Employee((int)sqlDataReader["Employee_ID"], (string)sqlDataReader["Employee_FullName"],
-                    (string)sqlDataReader["Employee_Username"], (string)sqlDataReader["Employee_Password"], (bool)sqlDataReader["Employee_IsAdmin"]);
+                    (string)sqlDataReader["Employee_Username"], (string)sqlDataReader["Employee_Password"], (string)sqlDataReader["Employee_Department"], (bool)sqlDataReader["Employee_IsAdmin"]);
                 list.Add(employee);
             }
             sqlConnection.Close();
@@ -79,10 +80,11 @@ namespace PLC_Management.Models.EmployeeModel
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
             command = new SqlCommand();
-            command.CommandText = $"exec AddEmployee @FullName, @Username, @Password, @IsAdmin";
+            command.CommandText = $"exec AddEmployee @FullName, @Username, @Password,@Department, @IsAdmin";
             var FullName = command.Parameters.AddWithValue("FullName", employee.FullName);
             var Username = command.Parameters.AddWithValue("Username", employee.Username.ToString().Trim());
             var Password = command.Parameters.AddWithValue("Password", employee.Password.ToString().Trim());
+            var Department = command.Parameters.AddWithValue("Department", employee.Department);
             var IsAdmin = command.Parameters.AddWithValue("IsAdmin", employee.IsAdmin);
             command.Connection = sqlConnection;
 
@@ -107,11 +109,12 @@ namespace PLC_Management.Models.EmployeeModel
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
             command = new SqlCommand();
-            command.CommandText = "exec UpdateEmployee @ID, @FullName, @Username, @Password, @IsAdmin";
+            command.CommandText = "exec UpdateEmployee @ID, @FullName, @Username, @Password, @Department, @IsAdmin";
             var ID = command.Parameters.AddWithValue("ID", employee.ID);
             var FullName = command.Parameters.AddWithValue("FullName", employee.FullName);
             var Username = command.Parameters.AddWithValue("Username", employee.Username.ToString().Trim());
             var Password = command.Parameters.AddWithValue("Password", employee.Password.ToString().Trim());
+            var Department = command.Parameters.AddWithValue("Department", employee.Department);
             var IsAdmin = command.Parameters.AddWithValue("IsAdmin", employee.IsAdmin);
             command.Connection = sqlConnection;
 

@@ -12,7 +12,8 @@ namespace PLC_Management.Models.EmployeeModel
             SqlCommand command = new SqlCommand(sql, sqlConnection);
 
             SqlDataReader sqlDataReader = command.ExecuteReader();
-            if (sqlDataReader.Read() && sqlDataReader.GetBoolean(4) == true)
+            //(5) là isAdmin
+            if (sqlDataReader.Read() && sqlDataReader.GetBoolean(5) == true)
             {
                 return true;
             }
