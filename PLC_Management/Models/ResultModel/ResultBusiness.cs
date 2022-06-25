@@ -29,8 +29,7 @@ namespace PLC_Management.Models.ResultModel
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                double _value = (double)sqlDataReader["Result_Value"];
-                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetString(2), sqlDataReader.GetString(3), Math.Round(_value, 4, MidpointRounding.AwayFromZero), sqlDataReader.GetBoolean(5), sqlDataReader["Result_DateTime"].ToString());
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetFloat(1), sqlDataReader.GetFloat(2), sqlDataReader.GetString(3), sqlDataReader.GetTimeSpan(4), sqlDataReader.GetString(5), sqlDataReader.GetString(6), sqlDataReader.GetDateTime(7));
                 list.Add(result);
             }
             sqlConnection.Close();
@@ -58,15 +57,14 @@ namespace PLC_Management.Models.ResultModel
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                double _value = (double)sqlDataReader["Result_Value"];
-                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetString(2), sqlDataReader.GetString(3), Math.Round(_value, 4, MidpointRounding.AwayFromZero), sqlDataReader.GetBoolean(5), sqlDataReader["Result_DateTime"].ToString());
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetFloat(1), sqlDataReader.GetFloat(2), sqlDataReader.GetString(3), sqlDataReader.GetTimeSpan(4), sqlDataReader.GetString(5), sqlDataReader.GetString(6), sqlDataReader.GetDateTime(7));
                 list.Add(result);
             }
             sqlConnection.Close();
             return list;
         }
 
-        public List<Result> GetResultByDayAndParameter(string tungay, string toingay, string pH, string Temp, string TSS, string COD,string NH4 ,int? page)
+        public List<Result> GetResultByDayAndParameter(string tungay, string toingay, string Oxi, string Nitor, int? page)
         {
             List<Result> list = new List<Result>();
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
@@ -76,19 +74,18 @@ namespace PLC_Management.Models.ResultModel
             {
                 int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE;
                 int? end = page * Common.NUMBER_ELM_ON_PAGE;
-                sql = $"exec paginationResultByDayAndParameter {start},{end},'{tungay}','{toingay}','{pH}','{Temp}','{TSS}','{COD}','{NH4}'";
+                sql = $"exec paginationResultByDayAndParameter {start},{end},'{tungay}','{toingay}','{Oxi}','{Nitor}'";
             }
             else
             {
-                sql = $"exec FindResultDayToDayByParameter '{tungay}', '{toingay}','{pH}','{Temp}','{TSS}','{COD}','{NH4}'";
+                sql = $"exec FindResultDayToDayByParameter '{tungay}', '{toingay}','{Oxi}','{Nitor}'";
             }
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             //loi
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                double _value = (double)sqlDataReader["Result_Value"];
-                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetString(2), sqlDataReader.GetString(3), Math.Round(_value, 4, MidpointRounding.AwayFromZero), sqlDataReader.GetBoolean(5), sqlDataReader["Result_DateTime"].ToString());
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetFloat(1), sqlDataReader.GetFloat(2), sqlDataReader.GetString(3), sqlDataReader.GetTimeSpan(4), sqlDataReader.GetString(5), sqlDataReader.GetString(6), sqlDataReader.GetDateTime(7));
                 list.Add(result);
             }
             sqlConnection.Close();
@@ -129,11 +126,11 @@ namespace PLC_Management.Models.ResultModel
             return num;
         }
 
-        public static int CountResultByParameterAndDay(string tungay, string toingay,string idpH, string idTemp, string idTSS, string idCOD, string idNH4)
+        public static int CountResultByParameterAndDay(string tungay, string toingay, string idOxi, string idNitor)
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
-            string sql = $"exec CountResultByParameterAndDay '{tungay}', '{toingay}', '{idpH}', '{idTemp}', '{idTSS}', '{idCOD}','{idNH4}'";
+            string sql = $"exec CountResultByParameterAndDay '{tungay}', '{toingay}', '{idOxi}', '{idNitor}'";
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             SqlDataReader sqlDataReader = command.ExecuteReader();
             int num = 0;
@@ -155,23 +152,27 @@ namespace PLC_Management.Models.ResultModel
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"exec AddResult @Result_Parameter_Name,@Result_Parameter_ID,@Result_Parameter_Unit,@Result_Value";
-            command.Parameters.AddWithValue("Result_Parameter_Name", result.Parameter_Name);
-            command.Parameters.AddWithValue("Result_Parameter_ID", result.Parameter_ID);
-            command.Parameters.AddWithValue("Result_Parameter_Unit", result.Parameter_Unit);
-            command.Parameters.AddWithValue("Result_Value", Math.Round(result.Value, 4, MidpointRounding.AwayFromZero));
+            command.CommandText = $"exec AddResult @Result_ApSuatNap ,@Result_TheTichNap ,@Result_LoaiKhi ,@Result_ApSuatLayMau, @Result_LuuLuongLayMau, @Result_ThoiGian ";
+            command.Parameters.AddWithValue("Result_ApSuatNap", Math.Round(result.ApSuatNap, 4, MidpointRounding.AwayFromZero));
+            command.Parameters.AddWithValue("Result_TheTichNap", Math.Round(result.TheTichNap, 4, MidpointRounding.AwayFromZero));
+            command.Parameters.AddWithValue("Result_LoaiKhi", result.LoaiKhi);
+            command.Parameters.AddWithValue("Result_ApSuatLayMau", result.ApSuatLayMau);
+            command.Parameters.AddWithValue("Result_LuuLuongLayMau", result.LuuLuongLayMau);
+            command.Parameters.AddWithValue("Result_ThoiGian", result.ThoiGian);
+
+
             command.Connection = sqlConnection;
 
             command.ExecuteNonQuery();
             sqlConnection.Close();
         }
 
-        public static void DeleteResultByIDAndParameter(int startID,int endID, string pH, string Temp, string TSS, string COD, string NH4)
+        public static void DeleteResultByIDAndParameter(int startID, int endID, string Oxi, string Nitor)
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"exec DeleteResultByIDAndParameter {startID}, {@endID}, '{pH}', '{Temp}', '{TSS}', '{COD}', '{NH4}'";
+            command.CommandText = $"exec DeleteResultByIDAndParameter {startID}, {@endID}, '{Oxi}', '{Nitor}'";
 
             command.Connection = sqlConnection;
 

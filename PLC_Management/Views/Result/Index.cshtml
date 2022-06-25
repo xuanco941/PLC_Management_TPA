@@ -23,16 +23,11 @@
 
         <form class="search col-12" method="get">
             <div style="margin-bottom:15px;">
-                <input id="pH" name="pH" @ViewBag.checkpH type="checkbox" />
-                <label style="font-size:18px;font-weight:600;" for="pH">pH</label>
-                <input id="Temp" name="Temp" @ViewBag.checkTemp type="checkbox" />
-                <label style="font-size:18px;font-weight:600;" for="Temp">Temp</label>
-                <input id="TSS" name="TSS" @ViewBag.checkTSS type="checkbox" />
-                <label style="font-size:18px;font-weight:600;" for="TSS">TSS</label>
-                <input id="COD" name="COD" @ViewBag.checkCOD type="checkbox" />
-                <label style="font-size:18px;font-weight:600;" for="COD">COD</label>
-                <input id="NH4" name="NH4" @ViewBag.checkNH4 type="checkbox" />
-                <label style="font-size:18px;font-weight:600;" for="NH4">NH4</label>
+                <input id="Oxi" name="Oxi" @ViewBag.checkOxi type="checkbox" />
+                <label style="font-size:18px;font-weight:600;" for="Oxi">Oxi</label>
+                <input id="Nitor" name="Nitor" @ViewBag.checkNitor type="checkbox" />
+                <label style="font-size:18px;font-weight:600;" for="Nitor">Nitor</label>
+               
             </div>
 
             <div class="box_loc">
@@ -94,11 +89,13 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Parameter Name</th>
-                        <th>ID</th>
-                        <th>Unit</th>
-                        <th>Date Time</th>
-                        <th>Value</th>
+                        <th>Áp suất nạp</th>
+                        <th>Thể tích nạp</th>
+                        <th>Loại khí</th>
+                        <th>Áp suất lấy mẫu</th>
+                        <th>Lưu lượng lấy mẫu</th>
+                        <th>Thời gian</th>
+                        <th>Ngày</th>
                     </tr>
                 </thead>
                 <!--Table head-->
@@ -112,29 +109,33 @@
                     }
                     @foreach (Result result in ViewBag.listResults)
                     {
-                        DateTime dateTime = Convert.ToDateTime(result.Datetime);
+                        DateTime dateTime = Convert.ToDateTime(result.CreateAt);
                         String s = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
                         int j = i + 1;
                         if (i % 2 == 0)
                         {
                             <tr class="table-success ID_Result" data-id-result="@result.ID">
                                 <th scope="row">@j</th>
-                                <td>@result.Parameter_Name</td>
-                                <td class="Parameter_ID">@result.Parameter_ID</td>
-                                <td>@result.Parameter_Unit</td>
+                                <td>@result.ApSuatNap</td>
+                                <td>@result.TheTichNap</td>
+                                <td class="Parameter_ID">@result.LoaiKhi</td>
+                                <td>@result.ApSuatLayMau</td>
+                                <td>@result.LuuLuongLayMau</td>
+                                <td>@result.ThoiGian</td>
                                 <td>@s</td>
-                                <td>@result.Value</td>
                             </tr>
                         }
                         else
                         {
                             <tr class="ID_Result" data-id-result="@result.ID">
                                 <th scope="row">@j</th>
-                                <td>@result.Parameter_Name</td>
-                                <td class="Parameter_ID">@result.Parameter_ID</td>
-                                <td>@result.Parameter_Unit</td>
+                                <td>@result.ApSuatNap</td>
+                                <td>@result.TheTichNap</td>
+                                <td class="Parameter_ID">@result.LoaiKhi</td>
+                                <td>@result.ApSuatLayMau</td>
+                                <td>@result.LuuLuongLayMau</td>
+                                <td>@result.ThoiGian</td>
                                 <td>@s</td>
-                                <td>@result.Value</td>
                             </tr>
                         }
                         i++;

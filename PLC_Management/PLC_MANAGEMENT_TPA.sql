@@ -22,18 +22,138 @@ GO
 
 CREATE TABLE Result(
 Result_ID INT IDENTITY(1,1) PRIMARY KEY,
-Result_ApSuatNap Real,
-Result_TheTichNap Real,
+Result_ApSuatNap FLOAT,
+Result_TheTichNap FLOAT,
 Result_LoaiKhi NVARCHAR(100),
+Result_ApSuatLayMau NVARCHAR(100),
+Result_LuuLuongLayMau NVARCHAR(100),
 Result_ThoiGian Time ,
-Result_CanhBaoApSuat Real,
-Result_ApSuatLayMau Time,
-Result_LuuLuongLayMau Time,
 Result_CreateAt DATETIME DEFAULT GETDATE()
 )
 GO
 
+CREATE TABLE ThongSoMay (
+ID int DEFAULT 1,
+ApSuat FLoat,
+ThoiGianNapGioiHan TIME,
+UpdateAt DateTime
+)
+GO
+
 /* Procedure */
+ -- Them result
+CREATE PROC AddResult @Result_ApSuatNap FLOAT,@Result_TheTichNap FLOAT,@Result_LoaiKhi nvarchar(100),@Result_ApSuatLayMau NVARCHAR(100), @Result_LuuLuongLayMau NVARCHAR(100),@Result_ThoiGian TIME
+as begin
+INSERT INTO Result(Result_ApSuatNap,Result_TheTichNap,Result_LoaiKhi,Result_ApSuatLayMau,Result_LuuLuongLayMau,Result_ThoiGian) 
+values(@Result_ApSuatNap,@Result_TheTichNap,@Result_LoaiKhi,@Result_ApSuatLayMau,@Result_LuuLuongLayMau,@Result_ThoiGian)
+end
+GO
+
+--phan trang, lất tất cả
+ create proc paginationResult (@startfrom int ,@endto int) as
+SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result 
+ ) a WHERE a.row > @startfrom and a.row <= @endto
+ GO
+
+
+ --Tim kiem Result theo khoang ngay
+create proc paginationResultByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as
+SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
+Result_CreateAt BETWEEN
+@Time1 AND
+ @Time2
+ ) as a WHERE a.row > @startfrom and a.row <= @endto 
+ GO
+
+CREATE PROC FindResultDayToDay @Time1 DateTime , @Time2 DateTime
+as begin
+SELECT * FROM Result WHERE 
+Result_CreateAt BETWEEN
+@Time1 AND
+ @Time2 order by Result.Result_ID DESC
+end
+GO
+
+
+ --pagination paraID and day
+ create proc paginationResultByDayAndParameter @startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@Oxi nvarchar(100), @Nitor nvarchar(100) 
+ as begin 
+  select * from (SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
+(Result_CreateAt BETWEEN
+@Time1 AND
+ @Time2) AND (Result_LoaiKhi = @Oxi OR Result_LoaiKhi = @Nitor )) as a WHERE a.row > @startfrom and a.row <= @endto  
+ end
+ GO
+
+ CREATE PROC FindResultDayToDayByParameter @Time1 DateTime , @Time2 DateTime,@Oxi nvarchar(100), @Nitor nvarchar(100)
+as begin
+SELECT * FROM Result WHERE( 
+Result_CreateAt BETWEEN
+@Time1 AND
+ @Time2) and (Result_LoaiKhi = @Oxi OR Result_LoaiKhi = @Nitor) order by Result.Result_ID DESC
+end
+GO
+
+--Dem result theo ngay, theo parameter
+CREATE PROC CountResultByParameterAndDay @Time1 DateTime, @Time2 DateTime, @Oxi nvarchar(100), @Nitor nvarchar(100)
+as begin
+select count(*) from Result where (Result.Result_LoaiKhi = @Oxi OR Result.Result_LoaiKhi = @Nitor) and (Result.Result_CreateAt between @Time1 and @Time2) 
+end
+GO
+
+--count by day
+CREATE PROC CountResultDayToDay @Time1 DateTime , @Time2 DateTime
+as begin
+SELECT count(*) FROM Result WHERE 
+Result_CreateAt BETWEEN
+@Time1 AND
+ @Time2
+end
+GO
+
+ -- delete result by ID
+ CREATE proc DeleteResultByIDAndParameter (@startID int, @endID int, @Oxi nvarchar(100), @Nitor nvarchar(100))
+ as begin
+ Delete From Result Where (Result.Result_ID >= @startID and Result.Result_ID <= @endID) and (Result.Result_LoaiKhi = @Oxi OR Result_LoaiKhi = @Nitor) 
+ end
+ GO
+
+
+
+
+
+
+
+
+--Update Thông số máy
+CREATE PROC UpdateThongSoMay @ApSuat FLoat, @ThoiGianNapGioiHan Time
+as begin
+Update ThongSoMay SET ApSuat = @ApSuat, ThoiGianNapGioiHan = @ThoiGianNapGioiHan, UpdateAt = GETDATE()
+where ID = 1
+end
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 --Tìm kiếm nhân viên theo tên tài khoản
 CREATE PROC FindEmployeeByUsername @Username varchar(100)
 as begin 
@@ -116,85 +236,6 @@ Activity_Time BETWEEN
 
 
 
-----Tim kiem Result theo khoang ngay
---CREATE PROC FindResultDayToDay @Time1 DateTime , @Time2 DateTime
---as begin
---SELECT * FROM Result WHERE 
---Result_CreateAt BETWEEN
---@Time1 AND
--- @Time2 order by Result.Result_ID DESC
---end
---GO
---CREATE PROC FindResultDayToDayByParameter @Time1 DateTime , @Time2 DateTime,@pH varchar(25), @Temp varchar(25), @TSS varchar(25),@COD varchar(25), @NH4 varchar(25)
---as begin
---SELECT * FROM Result WHERE( 
---Result_CreateAt BETWEEN
---@Time1 AND
--- @Time2) and (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD OR Result_Parameter_ID = @NH4) order by Result.Result_ID DESC
---end
---GO
-----count by day
---CREATE PROC CountResultDayToDay @Time1 DateTime , @Time2 DateTime
---as begin
---SELECT count(*) FROM Result WHERE 
---Result_CreateAt BETWEEN
---@Time1 AND
--- @Time2
---end
---GO
-
-
-----Dem result theo ngay, theo parameter
---CREATE PROC CountResultByParameterAndDay @Time1 DateTime, @Time2 DateTime, @pH varchar(25),@Temp varchar(25),@TSS varchar(25),@COD varchar(25), @NH4 varchar(25)
---as begin
---select count(*) from Result where (Result.Result_Parameter_ID = @pH OR Result.Result_Parameter_ID = @Temp OR Result.Result_Parameter_ID = @TSS or Result.Result_Parameter_ID = @COD OR Result.Result_Parameter_ID = @NH4) and (Result.Result_DateTime between @Time1 and @Time2) 
---end
---GO
----- Them result
---CREATE PROC AddResult @Result_Parameter_Name nvarchar(300),@Result_Parameter_ID varchar(25),@Result_Parameter_Unit nvarchar(30),@Result_Value FLOAT
---as begin
---INSERT INTO Result(Result_Parameter_Name,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values(@Result_Parameter_Name,@Result_Parameter_ID,@Result_Parameter_Unit,@Result_Value)
---end
---GO
-
-
-
--- create proc paginationResult (@startfrom int ,@endto int) as
---SELECT * FROM ( 
---  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result 
--- ) a WHERE a.row > @startfrom and a.row <= @endto
--- GO
-
-
-
---  create proc paginationResultByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as
---SELECT * FROM ( 
---  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
---Result_CreateAt BETWEEN
---@Time1 AND
--- @Time2
--- ) as a WHERE a.row > @startfrom and a.row <= @endto 
--- GO
-
--- --pagination paraID and day
---   create proc paginationResultByDayAndParameter (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25),@NH4 varchar(25) ) as begin 
---  select * from (SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
---(Result_CreateAt BETWEEN
---@Time1 AND
--- @Time2) AND (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD OR Result.Result_Parameter_ID = @NH4)) as a WHERE a.row > @startfrom and a.row <= @endto  
--- end
--- GO
-
-
--- -- delete result by ID
--- CREATE proc DeleteResultByIDAndParameter (@startID int, @endID int, @pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25),@NH4 varchar(25))
--- as begin
--- Delete From Result Where (Result.Result_ID >= @startID and Result.Result_ID <= @endID) and (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD OR Result_Parameter_ID = @NH4) 
--- end
--- GO
 
 exec AddEmployee N'Đỗ Văn Xuân', 'admin','123',N'Kế toán', 1
 GO
-
---Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L'),('NH4','NH4','','');
---GO

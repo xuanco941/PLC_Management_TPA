@@ -5,11 +5,11 @@ namespace PLC_Management.Controllers
 {
     public class ResultController : Controller
     {
-        public IActionResult Index([FromQuery(Name = "tungay")] string tungay, [FromQuery(Name = "toingay")] string toingay, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "pH")] string pH,
-            [FromQuery(Name = "Temp")] string Temp, [FromQuery(Name = "TSS")] string TSS, [FromQuery(Name = "COD")] string COD, [FromQuery(Name = "NH4")] string NH4, [FromQuery(Name = "numberResult")] int numberResult)
+        public IActionResult Index([FromQuery(Name = "tungay")] string tungay, [FromQuery(Name = "toingay")] string toingay, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "Oxi")] string Oxi,
+            [FromQuery(Name = "Nitor")] string Nitor, [FromQuery(Name = "numberResult")] int numberResult)
         {
 
-            if (numberResult>0)
+            if (numberResult > 0)
             {
                 Common.NUMBER_ELM_ON_PAGE = numberResult;
                 if (numberResult > 5000)
@@ -51,7 +51,7 @@ namespace PLC_Management.Controllers
                 ViewBag.listResults = results;
 
             }
-            else if (tungay != null && toingay != null && (pH == null && Temp == null && TSS == null && COD == null && NH4 == null))
+            else if (tungay != null && toingay != null && (Oxi == null && Nitor == null))
             {
 
                 ViewBag.host = $"result?tungay={tungay}&toingay={toingay}&page=";
@@ -83,23 +83,17 @@ namespace PLC_Management.Controllers
             }
             else
             {
-                string idpH = "pH";
-                string idTemp = "Temp";
-                string idTSS = "TSS";
-                string idCOD = "COD";
-                string idNH4 = "NH4";
+                string idOxi = "Oxi";
+                string idNitor = "Nitor";
 
-                idpH = pH != null ? "pH" : "null";
-                idTemp = Temp != null ? "Temp" : "null";
-                idTSS = TSS != null ? "TSS" : "null";
-                idCOD = COD != null ? "COD" : "null";
-                idNH4 = NH4 != null ? "NH4" : "null";
+                idOxi = Oxi != null ? "Oxi" : "null";
+                idNitor = Nitor != null ? "Nitor" : "null";
 
                 DateTime dateTime1 = Convert.ToDateTime(tungay);
                 DateTime dateTime2 = Convert.ToDateTime(toingay).AddDays(1);
                 string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
-                int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idpH, idTemp, idTSS, idCOD,idNH4);
+                int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idOxi, idNitor);
                 int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
                 if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
                 {
@@ -107,37 +101,24 @@ namespace PLC_Management.Controllers
                 }
                 ViewBag.countPage = countPage;
 
-                string? hostpH = "";
-                string? hostTemp = "";
-                string? hostTSS = "";
-                string? hostCOD = "";
-                string? hostNH4 = "";
-                if (pH != null)
+                string? hostOxi = "";
+                string? hostNitor = "";
+
+                if (Oxi != null)
                 {
-                    hostpH = "pH=on&";
+                    hostOxi = "Oxi=on&";
                 }
-                if (Temp != null)
+                if (Nitor != null)
                 {
-                    hostTemp = "Temp=on&";
+                    hostNitor = "Nitor=on&";
                 }
-                if (TSS != null)
-                {
-                    hostTSS = "TSS=on&";
-                }
-                if (COD != null)
-                {
-                    hostCOD = "COD=on&";
-                }
-                if(NH4 != null)
-                {
-                    hostNH4 = "NH4=on&";
-                }
-                ViewBag.host = $"result?{hostpH}{hostTemp}{hostTSS}{hostCOD}{hostNH4}tungay={tungay}&toingay={toingay}&page=";
+                
+                ViewBag.host = $"result?{hostOxi}{hostNitor}tungay={tungay}&toingay={toingay}&page=";
 
 
                 try
                 {
-                    results = resultBusiness.GetResultByDayAndParameter(strDatime1, strDatime2, idpH,idTemp,idTSS,idCOD,idNH4, page);
+                    results = resultBusiness.GetResultByDayAndParameter(strDatime1, strDatime2, idOxi, idNitor, page);
                 }
                 catch
                 {
@@ -147,20 +128,14 @@ namespace PLC_Management.Controllers
 
             }
 
-            ViewBag.checkpH = pH != null ? "checked" : null;
-            ViewBag.checkTemp = Temp != null ? "checked" : null;
-            ViewBag.checkTSS = TSS != null ? "checked" : null;
-            ViewBag.checkCOD = COD != null ? "checked" : null;
-            ViewBag.checkNH4 = NH4 != null ? "checked" : null;
+            ViewBag.checkOxi = Oxi != null ? "checked" : null;
+            ViewBag.checkNitor = Nitor != null ? "checked" : null;
 
 
-            if (pH == null && Temp == null && TSS == null && COD == null && NH4 == null)
+            if (Oxi == null && Nitor == null)
             {
-                ViewBag.checkpH = "checked";
-                ViewBag.checkTemp = "checked";
-                ViewBag.checkTSS = "checked";
-                ViewBag.checkCOD = "checked";
-                ViewBag.checkNH4 = "checked";
+                ViewBag.checkOxi = "checked";
+                ViewBag.checkNitor = "checked";
             }
             ViewBag.tungay = tungay;
             ViewBag.toingay = toingay;
@@ -176,14 +151,14 @@ namespace PLC_Management.Controllers
         {
             try
             {
-                ResultBusiness.DeleteResultByIDAndParameter(deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4);
+                ResultBusiness.DeleteResultByIDAndParameter(deleteResult.start_id, deleteResult.end_id, deleteResult.Oxi, deleteResult.Nitor);
 
             }
             catch
             {
                 //loi xoa
             }
-            return Json( new { deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4 });
+            return Json(new { deleteResult.start_id, deleteResult.end_id, deleteResult.Oxi, deleteResult.Nitor });
         }
 
         [HttpPost]

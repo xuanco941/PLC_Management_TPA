@@ -28,7 +28,6 @@ window.onload = () => {
 
                     fullnameUpdate.value = dataUser.fullName;
                     usernameUpdate.value = dataUser.username;
-                    //usernameUpdate.disabled = IDMain == dataUser.id ? true : false;
                     departmentUpdate.value = dataUser.department;
                     passwordUpdate.value = dataUser.password;
                     if (dataUser.isAdmin == true) {
