@@ -9,6 +9,7 @@
     flex-wrap: nowrap;
 }
 
+
 .sidenav::before {
     content: "";
     position: absolute;
@@ -142,4 +143,11 @@
 }
 .btn_logout{
     width: 100%;
+}
+
+#header_name {
+    font-family:'Ink Free';
+    padding-bottom:0;
+    margin-bottom:0;
+    font-size:35px;
 }
