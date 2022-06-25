@@ -17,7 +17,7 @@
 @*    part1
 *@
     <div class="row" style="padding-right:2px; padding-left:2px;">
-        <div class="col-8">
+        <div class="col-6 col-xl-7">
             <div style="margin-bottom:15px;">
                 <select>
                     <option value="find_by_day">Lọc theo ngày</option>
@@ -53,7 +53,7 @@
 
         @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
         {
-            <div class="col-4" style="display:flex; align-items:end; flex-direction:column; margin-top:35px; margin-bottom:15px;">
+            <div class="col-6 col-xl-5" style="display:flex; align-items:end; flex-direction:column; margin-top:35px; margin-bottom:15px;">
                 <div style="display:flex; justify-content:end;">
                     <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger btn_xoa_css">
                         Xóa bản ghi trang hiện tại
@@ -78,7 +78,7 @@
                 <input id="numberResult" placeholder="@ViewBag.NUMBER_ELM_ON_PAGE bản ghi" style="text-align:center;width:137px; font-size:14px; height:36px;" name="numberResult" type="number" />
                 <button type="submit" class="btn-primary btn">Thay đổi</button>
             </form>
-            <div>
+            <div >
                 <button class="btn-warning btn" id="btn-print" style="margin-right:10px;">In báo cáo</button>
                 <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
             </div>

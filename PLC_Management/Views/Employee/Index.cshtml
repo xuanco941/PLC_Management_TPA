@@ -61,7 +61,7 @@
                         </td>
 
                         <th class="box_option">
-                            <button type="button" data-id-main=@IDMain data-id="@employee.ID" style="padding-left:23px;padding-right:23px;" class="btn btn_update btn-primary" data-toggle="modal" data-target="#exampleModalCenterUpdate">
+                            <button type="button" data-id-main=@IDMain data-id="@employee.ID" class="btn btn_update btn-primary" data-toggle="modal" data-target="#exampleModalCenterUpdate">
                                 Sửa
                             </button>
                         </th>
@@ -69,7 +69,7 @@
                             @if (IDMain != employee.ID)
                             {
                                 <form asp-action="DeleteEmployee" asp-route-id="@employee.ID" method="post">
-                                    <button style="padding-left:23px;padding-right:23px;" type="submit" class="btn btn-danger">Xóa</button>
+                                    <button type="submit" class="btn btn-danger btn_xoa">Xóa</button>
                                 </form>
                             }
                         </th>

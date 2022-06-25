@@ -36,3 +36,19 @@
         text-align: end;
         margin-right: 15px;
     }
+.btn_update, .btn_xoa {
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+@media (max-width: 999px) {
+
+    table, tr, td {
+        font-size: 11px;
+    }
+    .btn_update,.btn_xoa{
+        font-size:11px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
