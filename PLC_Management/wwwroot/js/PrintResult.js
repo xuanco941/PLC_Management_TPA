@@ -22,7 +22,7 @@ document.querySelector('#btn-print').onclick = () => {
 
 
     var divChildren2 = document.createElement('div');
-    var textvalue = `${textOxi} ${textNitor}`;
+    var textvalue = `${textOxi,textNitor}`;
     divChildren2.textContent = '('+ textvalue.substr(0, textvalue.lastIndexOf(',')) +')';
 
     var divChildren3 = document.createElement('div');

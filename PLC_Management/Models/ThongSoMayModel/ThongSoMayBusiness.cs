@@ -4,7 +4,7 @@ namespace PLC_Management.Models.ThongSoMayModel
 {
     public class ThongSoMayBusiness
     {
-        public static void UpdateEmployee(float ApSuat, TimeSpan ThoiGianNapGioiHan)
+        public static void UpdateThongSoMay(double ApSuat, TimeSpan ThoiGianNapGioiHan)
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
