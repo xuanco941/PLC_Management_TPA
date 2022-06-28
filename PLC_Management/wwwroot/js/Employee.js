@@ -110,7 +110,7 @@ btnSave.addEventListener("click", (event) => {
                 trElm[0].children[4].textContent = dataUser.department;
                 trElm[0].children[5].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
                 //Toast
-                ActiveToast('success', 'Thông báo', `Đã nhật thông tin tài khoản của ${dataUser.fullName}.`);
+                ActiveToast('success', 'Thông báo', `Đã nhật thông tin tài khoản của ${dataUser.fullName}.`,5);
             })
     }
     else {

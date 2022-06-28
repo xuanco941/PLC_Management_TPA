@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
                     elm.remove();
                 });
                 //Toast
-                ActiveToast('success', 'Trạng thái', 'Xóa thành công');
+                ActiveToast('success', 'Trạng thái', 'Xóa thành công',5);
             });
 
         } else {

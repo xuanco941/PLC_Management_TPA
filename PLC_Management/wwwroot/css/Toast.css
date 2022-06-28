@@ -11,8 +11,6 @@
 
 .toast {
     opacity: 0.9 !important;
-    animation-name: Toast;
-    animation-duration: 5s;
 }
 
 .toast-danger, .toast-danger > .toast-header {
