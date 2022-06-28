@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
-<html lang="en">
+<fontn">
 
 <head>
     <meta charset="UTF-8">
@@ -28,12 +28,20 @@
                 </a>
             </div>
             <div class="body_menu">
-                <a class="item_menu" href="/dashboard">Bảng điều khiển</a>
-                <a class="item_menu" href="/result">Tìm kiếm bản ghi</a>
-                <a class="item_menu" href="/activity">Lịch sử hoạt động</a>
+                <a class="item_menu" href="/dashboard">
+                    <i class="fa-solid fa-screwdriver-wrench" style="margin-right:5px; font-size:19px; margin-bottom:2px;"></i>
+                    Theo dõi và cài đặt</a>
+                <a class="item_menu" href="/result">
+                    <i class="fa-solid fa-clock-rotate-left" style="margin-right:5px; font-size:19px; margin-bottom:2px;"></i>
+                    Tìm kiếm bản ghi</a>
+                <a class="item_menu" href="/activity">
+                    <i class="fa-solid fa-list-check" style="margin-right:5px; font-size:19px; margin-bottom:2px;"></i>
+                    Lịch sử hoạt động</a>
                 @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
                 {
-                    <a class="item_menu" href="/employee">Tài khoản thành viên</a>
+                    <a class="item_menu" href="/employee">
+                        <i class="fa-solid fa-user-group " style="margin-right:5px; font-size:19px; margin-bottom:2px;"></i>
+                        Tài khoản thành viên</a>
                 }
             </div>
 
