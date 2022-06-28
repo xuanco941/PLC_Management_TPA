@@ -68,7 +68,7 @@
                         <th>
                             @if (IDMain != employee.ID)
                             {
-                                <form asp-action="DeleteEmployee" asp-route-id="@employee.ID" method="post">
+                                <form asp-action="DeleteEmployee" class="form_xoa" asp-route-id="@employee.ID" method="post">
                                     <button type="submit" class="btn btn-danger btn_xoa">Xóa</button>
                                 </form>
                             }
@@ -187,5 +187,7 @@
     </div>
 </div>
 
-<script src="~/js/Employee.js"></script>
 
+@section Scripts{
+    <script src="~/js/Employee.js"></script>
+}

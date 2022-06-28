@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HaDKWlSi264pa9NNSY9fPef1w9chNHb6RGajt8xZUj8=",
+  "Hash": "ud9YayfJgmImRSHjUmBZLBy7/qNvWzZjAfDEbpKnJEw=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\SideNav.css"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Toast.css",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "css/Toast.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Toast.css"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\favicon.ico",
@@ -306,12 +323,12 @@
       "OriginalItemSpec": "wwwroot\\js\\table2excel.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_bundle_min.js",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\js\\Toast.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "lib/lib_new_version/bootstrap_bundle_min.js",
+      "RelativePath": "js/Toast.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -320,15 +337,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\bootstrap_bundle_min.js"
+      "OriginalItemSpec": "wwwroot\\js\\Toast.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\bootstrap_bundle_min.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "lib/lib_new_version/bootstrap_min.css",
+      "RelativePath": "lib/bootstrap_bundle_min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -337,15 +354,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\bootstrap_min.css"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap_bundle_min.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.js",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\bootstrap_min.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "lib/lib_new_version/bootstrap_min.js",
+      "RelativePath": "lib/bootstrap_min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -354,15 +371,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\bootstrap_min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap_min.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\lib_new_version\\jquery3_2_1.js",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\bootstrap_min.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "lib/lib_new_version/jquery3_2_1.js",
+      "RelativePath": "lib/bootstrap_min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -371,15 +388,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\jquery3_2_1.js"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap_min.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\lib_new_version\\popper.js",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\jquery3_2_1.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "lib/lib_new_version/popper.js",
+      "RelativePath": "lib/jquery3_2_1.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -388,7 +405,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\popper.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery3_2_1.js"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\popper.js",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "lib/popper.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\popper.js"
     }
   ]
 }

@@ -109,6 +109,8 @@ btnSave.addEventListener("click", (event) => {
                 trElm[0].children[3].textContent = dataUser.password;
                 trElm[0].children[4].textContent = dataUser.department;
                 trElm[0].children[5].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
+                //Toast
+                ActiveToast('success', 'Thông báo', `Đã nhật thông tin tài khoản của ${dataUser.fullName}.`);
             })
     }
     else {
@@ -124,3 +126,16 @@ btnSave.addEventListener("click", (event) => {
 
 
 
+//Xóa
+let form_xoa = Array.from(document.querySelectorAll('.form_xoa'));
+form_xoa.forEach((form) => {
+    form.onsubmit = (e) => {
+        if (confirm('Bạn có chắc chắn muốn xóa tài khoản này?')) {
+            return true;
+        }
+        else {
+            e.preventDefault();
+            return false;
+        }
+    }
+})

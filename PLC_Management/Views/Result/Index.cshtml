@@ -14,8 +14,8 @@
         </h1>
     </div>
 
-@*    part1
-*@
+    @*    part1
+    *@
     <div class="row" style="padding-right:2px; padding-left:2px;">
         <div class="col-6 col-xl-7">
             <div style="margin-bottom:15px;">
@@ -70,15 +70,15 @@
         }
     </div>
 
-@*    part2
-*@
+    @*    part2
+    *@
     <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
         <div class="col-12" style="display:flex; justify-content:space-between; margin-top:25px;">
             <form method="get">
                 <input id="numberResult" placeholder="@ViewBag.NUMBER_ELM_ON_PAGE bản ghi" style="text-align:center;width:137px; font-size:14px; height:36px;" name="numberResult" type="number" />
                 <button type="submit" class="btn-primary btn">Thay đổi</button>
             </form>
-            <div >
+            <div>
                 <button class="btn-warning btn" id="btn-print" style="margin-right:10px;">In báo cáo</button>
                 <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
             </div>
@@ -235,9 +235,10 @@
         table2excel.export(document.querySelector("#table"));
     })
 </script>
-<script src="~/js/PrintResult.js"></script>
-<script src="~/js/Pagination.js"></script>
-<script src="~/js/DeleteResult.js"></script>
+
 @section Scripts{
+    <script src="~/js/PrintResult.js"></script>
+    <script src="~/js/Pagination.js"></script>
+    <script src="~/js/DeleteResult.js"></script>
     <script src="~/js/format_date_result.js"></script>
 }
