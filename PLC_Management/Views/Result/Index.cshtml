@@ -21,7 +21,7 @@
         <div class="col-6 col-xl-7">
             <div style="margin-bottom:15px;">
                 <select>
-                    <option value="find_by_day">Lọc theo ngày</option>
+                    <option class="font_size_reponsive" value="find_by_day">Lọc theo ngày</option>
                 </select>
             </div>
 
@@ -36,17 +36,17 @@
 
                 <div class="box_loc">
                     <span class="span_locngay">
-                        <label style="font-weight:500;" for="tungay">Từ ngày: </label>
-                        <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" data-role="calendarpicker" style="margin-right:40px;" />
+                        <label style="font-weight:500;" class="font_size_reponsive" for="tungay">Từ ngày: </label>
+                        <input id="tungay" class="font_size_reponsive" name="tungay" value=@ViewBag.tungay type="date" data-role="calendarpicker" style="margin-right:40px;" />
                     </span>
 
                     <span class="span_locngay">
-                        <label style="font-weight:500;" for="toingay">Tới ngày:</label>
-                        <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+                        <label class="font_size_reponsive" style="font-weight:500;" for="toingay">Tới ngày:</label>
+                        <input class="font_size_reponsive" id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
                     </span>
 
 
-                    <button type="submit" style="padding-left:20px; padding-right:20px;" class="btn-primary btn btn_locngay span_locngay">
+                    <button type="submit" style="padding-left:20px; padding-right:20px;" class="btn-primary btn btn_locngay span_locngay font_size_reponsive">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         Lọc</button>
                 </div>
@@ -58,12 +58,12 @@
         {
             <div class="col-6 col-xl-5" style="display:flex; align-items:end; flex-direction:column; margin-top:35px; margin-bottom:15px;">
                 <div style="display:flex; justify-content:end;">
-                    <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger btn_xoa_css">
+                    <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger btn_xoa_css font_size_reponsive">
                         Xóa dữ liệu trang hiện tại
                     </button>
                 </div>
                 <form id="xoa_tat_ca" method="post" asp-controller="Result" asp-action="DeleteAllResults" style="margin-top:10px;display:flex; justify-content:end;">
-                    <button id="btn_xoa_tat_ca" name="btn_xoa_tat_ca" type="submit" class="btn btn-danger btn_xoa_css">
+                    <button id="btn_xoa_tat_ca" name="btn_xoa_tat_ca" type="submit" class="btn btn-danger btn_xoa_css font_size_reponsive">
                         Xóa tất cả dữ liệu
                     </button>
                 </form>
@@ -78,12 +78,12 @@
     <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
         <div class="col-12" style="display:flex; justify-content:space-between; margin-top:25px;">
             <form method="get">
-                <input id="numberResult" placeholder="@ViewBag.NUMBER_ELM_ON_PAGE bản ghi" style="text-align:center;width:137px; font-size:14px; height:36px;" name="numberResult" type="number" />
-                <button type="submit" class="btn-primary btn">Thay đổi</button>
+                <input class="font_size_reponsive" id="numberResult" placeholder="@ViewBag.NUMBER_ELM_ON_PAGE bản ghi" style="text-align:center;width:137px; font-size:14px; height:36px;" name="numberResult" type="number" />
+                <button type="submit" class="btn-primary btn font_size_reponsive">Thay đổi</button>
             </form>
             <div>
-                <button class="btn-warning btn" id="btn-print" style="margin-right:10px;">In báo cáo</button>
-                <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
+                <button class="btn-warning btn font_size_reponsive" id="btn-print" style="margin-right:10px;">In báo cáo</button>
+                <button class="btn-primary btn font_size_reponsive" id="btn-export">Xuất file excel</button>
             </div>
         </div>
     </div>
@@ -184,28 +184,28 @@
                         }
                         @if ((@page3 - 2) > 0)
                         {
-                            <li class="page-item"><a class="page-link" href="./@link1">@page1</a></li>
+                            <li class="page-item "><a class="page-link font_size_reponsive" href="./@link1">@page1</a></li>
                         }
                         @if ((@page3 - 1) > 0)
                         {
-                            <li class="page-item"><a class="page-link" href="./@link2">@page2</a></li>
+                            <li class="page-item "><a class="page-link font_size_reponsive" href="./@link2">@page2</a></li>
                         }
 
-                        <li class="page-item active"><a class="page-link" href="./@link3">@page3</a></li>
+                        <li class="page-item active "><a class="page-link font_size_reponsive" href="./@link3">@page3</a></li>
 
                         @if (@page3 < @ViewBag.countPage)
                         {
-                            <li class="page-item"><a class="page-link" href="./@link4">@page4</a></li>
+                            <li class="page-item "><a class="page-link font_size_reponsive" href="./@link4">@page4</a></li>
                         }
 
                         @if ((@page3 + 1) < @ViewBag.countPage)
                         {
-                            <li class="page-item"><a class="page-link" href="./@link5">@page5</a></li>
+                            <li class="page-item "><a class="page-link font_size_reponsive" href="./@link5">@page5</a></li>
                         }
                         @if ((@page3 + 2) < @ViewBag.countPage)
                         {
                             <li style="width:28px; display: flex; justify-content:center; font-size:19px; height:100%; margin-top:9px; color:#0d6efd ">. . .</li>
-                            <li class="page-item"><a class="page-link" href="./@link_count_page">@ViewBag.countPage (hết)</a></li>
+                            <li class="page-item "><a class="page-link font_size_reponsive" href="./@link_count_page">@ViewBag.countPage (hết)</a></li>
                         }
 
                     </ul>
@@ -218,8 +218,8 @@
         </div>
 
         <div style="height:35px;">
-            <input data-go-page="@ViewBag.countPage" style="width:100px; height:100%; text-align:center" placeholder="Trang số ..." type="number" id="input_go_page" />
-            <button data-go-page="@ViewBag.host" class="btn-primary btn" style="height:calc(100%+5px);" id="btn_go_page" type="button">Đi tới trang</button>
+            <input data-go-page="@ViewBag.countPage" class="font_size_reponsive" style="width:100px; height:100%; text-align:center" placeholder="Trang số ..." type="number" id="input_go_page" />
+            <button data-go-page="@ViewBag.host" class="btn-primary btn font_size_reponsive" style="height:calc(100%+5px);" id="btn_go_page" type="button">Đi tới trang</button>
         </div>
 
     </div>
