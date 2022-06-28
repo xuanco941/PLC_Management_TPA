@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 
 
     btn_xoa_ban_ghi.addEventListener('click', () => {
-        if (confirm('Bạn có chắc muốn xóa bản ghi ở trang hiện tại?')) {
+        if (confirm('Bạn có chắc muốn xóa dữ liệu ở trang hiện tại?')) {
 
             //lay data-id cua tat ca cac phan tu tren bang 
             var Results = Array.from(document.getElementsByClassName('ID_Result'));
@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
 
     var xoa_tat_ca = document.getElementById('xoa_tat_ca');
     xoa_tat_ca.onsubmit = (e) => {
-        if (confirm("Bạn có chắc muốn xóa tất cả bản ghi?")) {
+        if (confirm("Bạn có chắc chắn muốn xóa tất cả dữ liệu?")) {
 
         }
         else {
