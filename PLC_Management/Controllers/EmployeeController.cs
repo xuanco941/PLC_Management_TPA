@@ -118,7 +118,7 @@ namespace WebApplication1.Controllers
 
         //Xóa
         [HttpPost]
-        public IActionResult DeleteEmployee(int id)
+        public IActionResult DeleteEmployee([FromBody] Employee employee)
         {
             // check admin
             int Employee_ID = Convert.ToInt32(HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN));
@@ -130,13 +130,13 @@ namespace WebApplication1.Controllers
 
 
             EmployeeBusiness nhanVienModel = new EmployeeBusiness();
-            if(nhanVienModel.DeleteEmployee(id) == true)
+            if(nhanVienModel.DeleteEmployee(employee.ID) == true)
             {
-                return RedirectToAction("Index");
+                return Json(employee.ID);
             }
             else
             {
-                return Json("Lỗi");
+                return Json(-1);
             }
         }
 

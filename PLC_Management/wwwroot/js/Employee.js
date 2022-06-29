@@ -5,7 +5,6 @@ const passwordUpdate = document.querySelector("#passwordUpdate");
 const departmentUpdate = document.querySelector("#departmentUpdate");
 const isAdminUpdateTrue = document.querySelector("#isAdminUpdateTrue");
 const isAdminUpdateFalse = document.querySelector("#isAdminUpdateFalse");
-const formUpdate = document.querySelector("#formUpdate");
 
 let dataID; // tai khoan tac dong
 
@@ -75,7 +74,6 @@ usernameUpdate.onkeyup = () => {
 };
 
 
-const exampleModalCenterUpdate = document.querySelector('#exampleModalCenterUpdate');
 const trElements = Array.from(document.querySelectorAll(".tb_elm"));
 // Cap nhat thong tin
 btnSave.addEventListener("click", (event) => {
@@ -110,7 +108,7 @@ btnSave.addEventListener("click", (event) => {
                 trElm[0].children[4].textContent = dataUser.department;
                 trElm[0].children[5].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
                 //Toast
-                ActiveToast('success', 'Thông báo', `Đã nhật thông tin tài khoản của ${dataUser.fullName}.`,5);
+                ActiveToast('success', 'Thông báo', `Đã nhật thông tin tài khoản của ${dataUser.fullName}.`, 5);
             })
     }
     else {
@@ -127,15 +125,40 @@ btnSave.addEventListener("click", (event) => {
 
 
 //Xóa
-let form_xoa = Array.from(document.querySelectorAll('.form_xoa'));
-form_xoa.forEach((form) => {
-    form.onsubmit = (e) => {
-        if (confirm('Bạn có chắc chắn muốn xóa tài khoản này?')) {
-            return true;
-        }
-        else {
-            e.preventDefault();
-            return false;
-        }
-    }
+const btn_xoa = Array.from(document.querySelectorAll('.btn_xoa'));
+const btnDeleteSubmit = document.querySelector('#btnDeleteSubmit');
+let employee_id_delete;
+btn_xoa.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        employee_id_delete = parseInt(btn.getAttribute('data-id'));
+    })
 })
+
+btnDeleteSubmit.addEventListener('click', (event) => {
+    // lay record nhan vien muon xoa
+    let trElm = trElements.filter((e) => {
+        return e.getAttribute('data-id') == employee_id_delete;
+    });
+    let fullnameUserDelete = trElm[0].children[1].textContent;
+
+    fetch('./employee/deleteemployee', {
+        method: "post",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({ ID: employee_id_delete })
+    }).then(res => res.json())
+        .then((id) => {
+            //Toast
+            if (id == -1) {
+                ActiveToast('error', 'Thông báo', `Xóa tài khoản của ${fullnameUserDelete} không thành công.`, 5);
+            }
+            else {
+                trElm[0].remove();
+                ActiveToast('success', 'Thông báo', `Đã xóa tài khoản của ${fullnameUserDelete}.`, 5);
+
+            }
+        });
+
+})
+

@@ -69,9 +69,13 @@
                         <th>
                             @if (IDMain != employee.ID)
                             {
-                                <form asp-action="DeleteEmployee" class="form_xoa" asp-route-id="@employee.ID" method="post">
-                                    <button type="submit" class="btn btn-danger btn_xoa">Xóa</button>
-                                </form>
+                                @*    <form asp-action="DeleteEmployee" class="form_xoa" asp-route-id="@employee.ID" method="post">
+                        <button type="submit" class="btn btn-danger btn_xoa">Xóa</button>
+                        </form>*@
+
+                                <div class="form_xoa">
+                                    <button type="button" data-id="@employee.ID" class="btn btn-danger btn_xoa" data-toggle="modal" data-target="#exampleModalCenterDelete">Xóa</button>
+                                </div>
                             }
                         </th>
                     </tr>
@@ -187,6 +191,27 @@
         </form>
     </div>
 </div>
+
+
+
+
+<!-- Modal Xoa -->
+<div class="modal fade" id="exampleModalCenterDelete" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form asp-action="DeleteEmployee" class="modal-content" id="form_delete" method="post" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc chắn muốn xóa tài khoản này?</h5>
+            </div>
+         
+            <div class="modal-footer">
+                <button type="button" id="btnDeleteSubmit" data-dismiss="modal" class="btn btn-danger">Có</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 
 
 @section Scripts{
