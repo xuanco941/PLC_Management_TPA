@@ -2,12 +2,14 @@
     Layout = "_Layout";
 }
 @using PLC_Management.Models.ActivityModel
+
+<link rel="stylesheet" href="~/lib/the-datepicker/the-datepicker.css" />
 <link rel="stylesheet" href="~/css/Record.css" />
 
 <div class="row">
     <div class="col-12" style="margin-top:25px;">
         <h1 style="text-align: center; font-family:'Ink Free';font-weight:600;">
-           <i class="fa-solid fa-list-check"></i>
+            <i class="fa-solid fa-list-check"></i>
             Lịch Sử Hoạt Động
         </h1>
     </div>
@@ -21,21 +23,22 @@
 
         <form class="search col-12" method="get">
             <div class="box_loc">
-                <span class="span_locngay">
+                <span class="span_locngay" style="margin-right:40px;">
                     <label style="font-weight:500;" for="tungay">Từ ngày: </label>
 
-                    <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
+                    <input id="tungay" name="tungay" value=@ViewBag.tungay style="width:115px;" type="text"/>
                 </span>
 
-                <span class="span_locngay">
+                <span class="span_locngay" style="margin-right:40px;">
                     <label style="font-weight:500;" for="toingay">Tới ngày:</label>
-                    <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+                    <input id="toingay" value=@ViewBag.toingay name="toingay" style="width:115px;" type="text" />
                 </span>
 
 
                 <button type="submit" style="padding-left:20px; padding-right:20px;" class="btn-primary btn btn_locngay span_locngay">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    Lọc</button>
+                    Lọc
+                </button>
             </div>
         </form>
         <div class="col-12" style="display:flex; justify-content:flex-end;">
@@ -182,5 +185,8 @@
 </script>
 
 @section Scripts{
+    <script src="~/lib/the-datepicker/the-datepicker.js"></script>
     <script src="~/js/Pagination.js"></script>
+    <script src="~/js/FormatDate.js"></script>
+
 }

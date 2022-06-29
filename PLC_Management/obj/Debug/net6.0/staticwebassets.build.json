@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ud9YayfJgmImRSHjUmBZLBy7/qNvWzZjAfDEbpKnJEw=",
+  "Hash": "tWgTmwZTrdcy5XFRPLlExD2LuytIV0suLo9fl2nqsQI=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -255,12 +255,12 @@
       "OriginalItemSpec": "wwwroot\\js\\Employee.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\js\\format_date_result.js",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\js\\FormatDate.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "js/format_date_result.js",
+      "RelativePath": "js/FormatDate.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,7 +269,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\format_date_result.js"
+      "OriginalItemSpec": "wwwroot\\js\\FormatDate.js"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\js\\Pagination.js",
@@ -423,6 +423,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\popper.js"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\the-datepicker\\the-datepicker.css",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "lib/the-datepicker/the-datepicker.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\the-datepicker\\the-datepicker.css"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\the-datepicker\\the-datepicker.js",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "lib/the-datepicker/the-datepicker.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\the-datepicker\\the-datepicker.js"
     }
   ]
 }

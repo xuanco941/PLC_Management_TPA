@@ -239,5 +239,7 @@ Activity_Time BETWEEN
 
 exec AddEmployee N'Đỗ Văn Xuân', 'admin','123',N'Kế toán', 1
 
-exec AddResult 100,23.4,'Oxi','1000',3004,'00:00:15'
+insert into Activity (Activity_Name) values ('Activity_Name')
+
+exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
 GO
