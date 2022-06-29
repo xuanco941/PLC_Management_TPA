@@ -58,15 +58,16 @@
         {
             <div class="col-6 col-xl-5" style="display:flex; align-items:end; flex-direction:column; margin-top:35px; margin-bottom:15px;">
                 <div style="display:flex; justify-content:end;">
-                    <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger btn_xoa_css font_size_reponsive">
+                    <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger btn_xoa_css font_size_reponsive" data-toggle="modal" data-target="#DeleteDataCurrentPage">
                         Xóa dữ liệu trang hiện tại
                     </button>
                 </div>
-                <form id="xoa_tat_ca" method="post" asp-controller="Result" asp-action="DeleteAllResults" style="margin-top:10px;display:flex; justify-content:end;">
-                    <button id="btn_xoa_tat_ca" name="btn_xoa_tat_ca" type="submit" class="btn btn-danger btn_xoa_css font_size_reponsive">
+                
+                <div id="xoa_tat_ca" style="margin-top:10px;display:flex; justify-content:end;">
+                    <button data-toggle="modal" data-target="#DeleteAllData" name="btn_xoa_tat_ca" type="submit" class="btn btn-danger btn_xoa_css font_size_reponsive">
                         Xóa tất cả dữ liệu
                     </button>
-                </form>
+                </div>
             </div>
 
 
@@ -228,6 +229,42 @@
 
 
 
+
+
+
+<!-- Modal xóa dữ liệu trang hiện tại  -->
+<div class="modal fade" id="DeleteDataCurrentPage" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form class="modal-content" method="post" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc muốn xóa dữ liệu ở trang hiện tại?</h5>
+            </div>
+         
+            <div class="modal-footer">
+                <button type="button" id="btnDeleteDataCurrentPage" data-dismiss="modal" class="btn btn-danger">Có</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal xóa toàn bộ dữ liệu -->
+<div class="modal fade" id="DeleteAllData" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form method="post" asp-controller="Result" asp-action="DeleteAllResults" class="modal-content bg-danger" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color:#fff" id="exampleModalLongTitle">Bạn có chắc chắn muốn xóa tất cả dữ liệu?</h5>
+            </div>
+         
+            <div class="modal-footer">
+                <button type="submit" id="btnDeleteAllData" class="btn btn-secondary">Có</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Không</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
 
