@@ -5,7 +5,7 @@ namespace PLC_Management.Controllers
 {
     public class ResultController : Controller
     {
-        public IActionResult Index([FromQuery(Name = "tungay")] string tungay, [FromQuery(Name = "toingay")] string toingay, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "Oxi")] string Oxi,
+        public IActionResult Index([FromQuery(Name = "tungay")] string? tungay, [FromQuery(Name = "toingay")] string? toingay, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "Oxi")] string Oxi,
             [FromQuery(Name = "Nitor")] string Nitor, [FromQuery(Name = "numberResult")] int numberResult)
         {
 
@@ -30,25 +30,23 @@ namespace PLC_Management.Controllers
             if (tungay == null && toingay == null)
             {
                 ViewBag.host = $"result?page=";
-                tungay = today.AddDays(-365).ToString("yyyy-MM-dd");
-                toingay = today.AddDays(1).ToString("yyyy-MM-dd");
-                int sumResult = ResultBusiness.CountResult();
 
-                int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
-                if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
+                try
                 {
-                    countPage = countPage + 1;
-                }
-                ViewBag.countPage = countPage;
-                //try
-                //{
+                    int sumResult = ResultBusiness.CountResult();
+
+                    int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
+                    if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
+                    {
+                        countPage = countPage + 1;
+                    }
+                    ViewBag.countPage = countPage;
                     results = resultBusiness.GetAllResults(page);
-                //}
-                //catch
-                //{
-                //    //Lỗi
-                //    ViewBag.Loi = 3;
-                //}
+                }
+                catch
+                {
+                    //Lỗi
+                }
                 ViewBag.listResults = results;
 
             }
@@ -61,16 +59,15 @@ namespace PLC_Management.Controllers
                 string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
 
-                int sumResult = ResultBusiness.CountResultByDay(strDatime1, strDatime2);
-                int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
-                if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
-                {
-                    countPage = countPage + 1;
-                }
-                ViewBag.countPage = countPage;
-
                 try
                 {
+                    int sumResult = ResultBusiness.CountResultByDay(strDatime1, strDatime2);
+                    int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
+                    if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
+                    {
+                        countPage = countPage + 1;
+                    }
+                    ViewBag.countPage = countPage;
                     results = resultBusiness.GetResultByDay(strDatime1, strDatime2, page);
                 }
                 catch
@@ -84,41 +81,37 @@ namespace PLC_Management.Controllers
             }
             else
             {
-                string idOxi = "Oxi";
-                string idNitor = "Nitor";
-
-                idOxi = Oxi != null ? "Oxi" : "null";
-                idNitor = Nitor != null ? "Nitor" : "null";
+                string idOxi = Oxi != null ? "Oxi" : "null";
+                string idNitor = Nitor != null ? "Nitor" : "null";
 
                 DateTime dateTime1 = Convert.ToDateTime(tungay);
                 DateTime dateTime2 = Convert.ToDateTime(toingay).AddDays(1);
                 string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
-                int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idOxi, idNitor);
-                int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
-                if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
-                {
-                    countPage = countPage + 1;
-                }
-                ViewBag.countPage = countPage;
-
-                string? hostOxi = "";
-                string? hostNitor = "";
-
-                if (Oxi != null)
-                {
-                    hostOxi = "Oxi=on&";
-                }
-                if (Nitor != null)
-                {
-                    hostNitor = "Nitor=on&";
-                }
-                
-                ViewBag.host = $"result?{hostOxi}{hostNitor}tungay={tungay}&toingay={toingay}&page=";
-
 
                 try
                 {
+                    int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idOxi, idNitor);
+                    int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
+                    if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
+                    {
+                        countPage = countPage + 1;
+                    }
+                    ViewBag.countPage = countPage;
+
+                    string? hostOxi = "";
+                    string? hostNitor = "";
+
+                    if (Oxi != null)
+                    {
+                        hostOxi = "Oxi=on&";
+                    }
+                    if (Nitor != null)
+                    {
+                        hostNitor = "Nitor=on&";
+                    }
+
+                    ViewBag.host = $"result?{hostOxi}{hostNitor}tungay={tungay}&toingay={toingay}&page=";
                     results = resultBusiness.GetResultByDayAndParameter(strDatime1, strDatime2, idOxi, idNitor, page);
                 }
                 catch

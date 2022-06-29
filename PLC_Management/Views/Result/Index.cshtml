@@ -4,7 +4,7 @@
 @{
     Layout = "_Layout";
 }
-
+<link rel="stylesheet" href="~/lib/the-datepicker/the-datepicker.css" />
 <link rel="stylesheet" href="~/css/Record.css" />
 
 <div class="row">
@@ -35,20 +35,25 @@
                 </div>
 
                 <div class="box_loc">
-                    <span class="span_locngay">
-                        <label style="font-weight:500;" class="font_size_reponsive" for="tungay">Từ ngày: </label>
-                        <input id="tungay" class="font_size_reponsive" name="tungay" value=@ViewBag.tungay type="date" data-role="calendarpicker" style="margin-right:40px;" />
+                    <span class="span_locngay" style="margin-right:40px;">
+                        <label class="font_size_reponsive" style="font-weight:500;" for="tungay">Từ ngày: </label>
+
+                        <input class="font_size_reponsive" id="tungay" name="tungay" value=@ViewBag.tungay style="width:115px;" type="text" />
                     </span>
 
-                    <span class="span_locngay">
+                    <span class="span_locngay" style="margin-right:40px;">
                         <label class="font_size_reponsive" style="font-weight:500;" for="toingay">Tới ngày:</label>
-                        <input class="font_size_reponsive" id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+                        <input class="font_size_reponsive" id="toingay" value=@ViewBag.toingay name="toingay" style="width:115px;" type="text" />
                     </span>
 
 
                     <button type="submit" style="padding-left:20px; padding-right:20px;" class="btn-primary btn btn_locngay span_locngay font_size_reponsive">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        Lọc</button>
+                        Lọc
+                    </button>
+
+
+
                 </div>
             </form>
         </div>
@@ -62,7 +67,7 @@
                         Xóa dữ liệu trang hiện tại
                     </button>
                 </div>
-                
+
                 <div id="xoa_tat_ca" style="margin-top:10px;display:flex; justify-content:end;">
                     <button data-toggle="modal" data-target="#DeleteAllData" name="btn_xoa_tat_ca" type="submit" class="btn btn-danger btn_xoa_css font_size_reponsive">
                         Xóa tất cả dữ liệu
@@ -240,7 +245,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc muốn xóa dữ liệu ở trang hiện tại?</h5>
             </div>
-         
+
             <div class="modal-footer">
                 <button type="button" id="btnDeleteDataCurrentPage" data-dismiss="modal" class="btn btn-danger">Có</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
@@ -257,7 +262,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" style="color:#fff" id="exampleModalLongTitle">Bạn có chắc chắn muốn xóa tất cả dữ liệu?</h5>
             </div>
-         
+
             <div class="modal-footer">
                 <button type="submit" id="btnDeleteAllData" class="btn btn-secondary">Có</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Không</button>
@@ -277,8 +282,10 @@
 </script>
 
 @section Scripts{
+
+    <script src="~/lib/the-datepicker/the-datepicker.js"></script>
     <script src="~/js/PrintResult.js"></script>
     <script src="~/js/Pagination.js"></script>
     <script src="~/js/DeleteResult.js"></script>
-    <script src="~/js/format_date_result.js"></script>
+    <script src="~/js/FormatDate.js"></script>
 }

@@ -1,19 +1,23 @@
 ﻿
 document.querySelector('#btn-print').onclick = () => {
 
-    var Oxi_p = document.querySelector('#Oxi');
-    var Nitor_p = document.querySelector('#Nitor');
-    var tungay_p = document.querySelector('#tungay');
-    var toingay_p = document.querySelector('#toingay');
+    let params = new URLSearchParams(window.location.search);
+
+    let tungay_p = params.get('tungay');
+    let toingay_p = params.get('toingay');
+
+
+    let textOxi = params.get('Oxi') ? 'Oxi,' : '';
+    let textNitor = params.get('Nitor') ? 'Nitor,' : '';
+
+    console.log(tungay_p, toingay_p, textOxi, textNitor);
+
 
     var printdata = document.getElementById('print_data');
     printdata.style.textAlign = 'center';
 
-    var textOxi = Oxi_p.checked == true ? 'Oxi,' : '';
-    var textNitor = Nitor_p.checked == true ? 'Nitor,' : '';
 
-
-    var ngay = new Date(tungay_p.value).toLocaleDateString('vi-VI') + ' - ' + new Date(toingay_p.value).toLocaleDateString('vi-VI');
+    var ngay = '(' + tungay_p + ') - (' + toingay_p + ')';
 
     var divChildren1 = document.createElement('div');
     divChildren1.textContent = 'BÁO CÁO GIÁ TRỊ ĐO';
@@ -22,11 +26,21 @@ document.querySelector('#btn-print').onclick = () => {
 
 
     var divChildren2 = document.createElement('div');
-    var textvalue = `${textOxi,textNitor}`;
-    divChildren2.textContent = '('+ textvalue.substr(0, textvalue.lastIndexOf(',')) +')';
+    if (textOxi || textNitor) {
+        var textvalue = `${textOxi + textNitor}`;
+        divChildren2.textContent = '(' + textvalue.substr(0, textvalue.lastIndexOf(',')) + ')';
+    }
+
 
     var divChildren3 = document.createElement('div');
-    divChildren3.textContent = ngay;
+    if (tungay_p && toingay_p) {
+        if (tungay_p == toingay_p) {
+            divChildren3.textContent = '(' + tungay_p + ')';
+        }
+        else {
+            divChildren3.textContent = ngay;
+        }
+    }
     divChildren3.style.marginBottom = '20px';
     divChildren3.style.marginTop = '7px';
 
@@ -41,7 +55,7 @@ document.querySelector('#btn-print').onclick = () => {
     var newwin = window.open("");
 
 
-    newwin.document.write('<link rel="stylesheet" href="./lib/lib_new_version/bootstrap_min.css">');
+    newwin.document.write('<link rel="stylesheet" href="./lib/bootstrap_min.css">');
     newwin.document.write(printdata.outerHTML);
 
     setTimeout(() => {
@@ -50,6 +64,6 @@ document.querySelector('#btn-print').onclick = () => {
 
     }, 300);
     divFather.remove();
- 
+
 
 }
