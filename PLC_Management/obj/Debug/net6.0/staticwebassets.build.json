@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tWgTmwZTrdcy5XFRPLlExD2LuytIV0suLo9fl2nqsQI=",
+  "Hash": "omQW084+7Hmfyd098qVN8czplBhBhNl/asrws2l86iU=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -389,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap_min.js"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\chart.js",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "lib/chart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\chart.js"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\jquery3_2_1.js",

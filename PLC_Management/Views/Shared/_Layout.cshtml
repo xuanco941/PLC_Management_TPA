@@ -40,6 +40,10 @@
                     <i class="fa-solid fa-list-check" style="margin-right:5px; font-size:19px; margin-bottom:2.5px;"></i>
                     Hoạt động
                 </a>
+                <a class="item_menu" href="/chart">
+                    <i class="fa-solid fa-chart-line" style="margin-right:5px; font-size:19px; margin-bottom:2.5px;"></i> 
+                    Thống kê
+                </a>
                 @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
                 {
                     <a class="item_menu" href="/employee">
