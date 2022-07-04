@@ -3,16 +3,16 @@
 }
 
 <div class="row">
-    <div class="col-12" style="margin-top:25px;">
+    <div class="col-12" style="margin-top:25px; margin-bottom:20px;">
         <h1 style="text-align: center;">
             Biểu Đồ Đo Lường
         </h1>
     </div>
     <div class="col-12">
         <div class="tile">
-            <h3 class="tile-title">Line Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-                <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+            @*            <h3 class="tile-title">Áp Suất</h3>
+            *@            <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="lineChart"></canvas>
             </div>
         </div>
     </div>
@@ -20,67 +20,47 @@
 
 
 @section Scripts{
-    <script type="text/javascript" src="~/lib//chart.js"></script>
 
+    <script src="~/lib/ChartJS/chartjs.min.js"></script>
 
     <script type="text/javascript">
-        var data = {
-            labels: ["January", "February", "March", "April", "May"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56]
-                },
-                {
-                    label: "My Second dataset",
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 86]
-                }, {
-                    label: "My three dataset",
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [28, 18, 80, 39, 16]
-                }
-            ]
-        };
-        var pdata = [
-            {
-                value: 300,
-                color: "#F7464A",
-                highlight: "#FF5A5E",
-                label: "Red"
-            },
-            {
-                value: 50,
-                color: "#46BFBD",
-                highlight: "#5AD3D1",
-                label: "Green"
-            },
-            {
-                value: 100,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "Yellow"
-            }
-        ]
 
-        var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-        var lineChart = new Chart(ctxl).Line(data);
+
+        const data = {
+            labels: ["1", "2", "3", "4", "5", "6", "7"],
+            datasets: [{
+                label: 'Oxi',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgb(75, 192, 192)',
+                tension: 0.1,
+
+            },
+            {
+                label: 'Nitor',
+                data: [65, 59, 20, 21, 26, 225, 80],
+                fill: false,
+                borderColor: 'rgb(90, 152, 112)',
+                backgroundColor: 'rgb(90, 152, 112)',
+                tension: 0.1,
+            }]
+        };
+
+        const options = {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Áp suất',
+                    font: { size: 19 }
+                }
+            }
+        }
+
+
+
+        const ctxl = $("#lineChart").get(0).getContext("2d");
+        const lineChart = new Chart(ctxl, { type: 'line', data, options });
 
     </script>
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "omQW084+7Hmfyd098qVN8czplBhBhNl/asrws2l86iU=",
+  "Hash": "pwyh31PuGkPrq9v05SrBi+h63f6bcQ4wYeN4xDia2+o=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -170,12 +170,12 @@
       "OriginalItemSpec": "wwwroot\\css\\Toast.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\favicon.ico",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\img\\logo.png",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "favicon.ico",
+      "RelativePath": "img/logo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,7 +184,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot\\img\\logo.png"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\img\\users.svg",
@@ -391,12 +391,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap_min.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\chart.js",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\ChartJS\\chartjs.min.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "lib/chart.js",
+      "RelativePath": "lib/ChartJS/chartjs.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -405,7 +405,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\chart.js"
+      "OriginalItemSpec": "wwwroot\\lib\\ChartJS\\chartjs.min.js"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\lib\\jquery3_2_1.js",
