@@ -52,7 +52,9 @@ document.querySelector('#btn-print').onclick = () => {
 
     printdata.insertAdjacentElement('afterbegin', divFather);
     printdata.style.fontFamily = 'Arial, Helvetica, sans-serif';
-    var newwin = window.open("");
+
+    //about: blank
+    var newwin = window.open(window.location.host);
 
 
     newwin.document.write('<link rel="stylesheet" href="./lib/bootstrap_min.css">');
