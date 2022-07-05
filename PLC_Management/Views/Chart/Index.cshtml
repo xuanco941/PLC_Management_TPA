@@ -9,10 +9,23 @@
         </h1>
     </div>
     <div class="col-12">
+        <select class="form-select" style="max-width:150px;" aria-label="Default select example">
+            <option selected>Hôm nay</option>
+            <option value="1">Tuần này</option>
+            <option value="2">Tháng này</option>
+        </select>
+    </div>
+    <div class="col-12">
         <div class="tile">
-            @*            <h3 class="tile-title">Áp Suất</h3>
-            *@            <div class="embed-responsive embed-responsive-16by9">
-                <canvas class="embed-responsive-item" id="lineChart"></canvas>
+            <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="lineChartApSuat"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-12" style="margin-top:20px;margin-bottom:20px;">
+        <div class="tile">
+            <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="lineChartLuuLuong"></canvas>
             </div>
         </div>
     </div>
@@ -25,11 +38,11 @@
 
     <script type="text/javascript">
 
-
-        const data = {
+        // Ap suat
+        const dataApSuat = {
             labels: ["1", "2", "3", "4", "5", "6", "7"],
             datasets: [{
-                label: 'Oxi',
+                label: 'Nitor',
                 data: [65, 59, 80, 81, 56, 55, 40],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
@@ -38,7 +51,7 @@
 
             },
             {
-                label: 'Nitor',
+                label: 'Oxi',
                 data: [65, 59, 20, 21, 26, 225, 80],
                 fill: false,
                 borderColor: 'rgb(90, 152, 112)',
@@ -47,7 +60,7 @@
             }]
         };
 
-        const options = {
+        const optionsApSuat = {
             plugins: {
                 title: {
                     display: true,
@@ -57,10 +70,46 @@
             }
         }
 
+        const lineChartApSuat = new Chart($("#lineChartApSuat").get(0).getContext("2d"), { type: 'line', data: dataApSuat, options: optionsApSuat });
 
 
-        const ctxl = $("#lineChart").get(0).getContext("2d");
-        const lineChart = new Chart(ctxl, { type: 'line', data, options });
+
+
+        //// Luu luong
+
+        const dataluuLuong = {
+            labels: ["1", "2", "3", "4", "5", "6", "7"],
+            datasets: [{
+                label: 'Nitor',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgb(75, 192, 192)',
+                tension: 0.1,
+
+            },
+            {
+                label: 'Oxi',
+                data: [65, 59, 20, 21, 26, 225, 80],
+                fill: false,
+                borderColor: 'rgb(90, 152, 112)',
+                backgroundColor: 'rgb(90, 152, 112)',
+                tension: 0.1,
+            }]
+        };
+
+        const optionsLuuLuong = {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Lưu lượng',
+                    font: { size: 19 }
+                }
+            }
+        }
+
+        const lineChartLuuLuong = new Chart($("#lineChartLuuLuong").get(0).getContext("2d"), { type: 'line', data: dataluuLuong, options: optionsLuuLuong });
+
 
     </script>
 

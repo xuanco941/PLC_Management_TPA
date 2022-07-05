@@ -141,19 +141,6 @@ GO
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 --Tìm kiếm nhân viên theo tên tài khoản
 CREATE PROC FindEmployeeByUsername @Username varchar(100)
 as begin 
@@ -235,6 +222,41 @@ Activity_Time BETWEEN
  GO
 
 
+
+ --Chart
+ -- lấy dữ liệu của Oxi hoặc Nitor trong ngày hiện tại
+ CREATE PROC GetDataToday (@LoaiKhi nvarchar(100)) as begin
+ declare @today Datetime ;
+ select @today = format(getdate(),'yyyy-MM-dd');
+ declare @tomorrow Datetime;
+ select @tomorrow = format( DATEADD(day, 1, @today),'yyyy-MM-dd');
+select * from Result where Result_LoaiKhi = @LoaiKhi and Result_CreateAt between @today and @tomorrow
+end
+GO
+
+ -- lấy dữ liệu của Oxi hoặc Nitor trong 1 tuần gần nhất
+ CREATE PROC GetDataSevenDaysAgo (@LoaiKhi nvarchar(100)) as begin
+ declare @today Datetime ;
+ select @today = format(getdate(),'yyyy-MM-dd');
+ declare @sevendayago Datetime;
+ select @sevendayago = format( DATEADD(day, -6, @today),'yyyy-MM-dd');
+ declare @tomorrow Datetime;
+ select @tomorrow = format( DATEADD(day, 1, @today),'yyyy-MM-dd');
+select * from Result where Result_LoaiKhi = @LoaiKhi and Result_CreateAt between @sevendayago and @tomorrow
+end
+GO
+
+ -- lấy dữ liệu của Oxi hoặc Nitor trong 30 ngày gần nhất
+ CREATE PROC GetDataThirtyDaysAgo (@LoaiKhi nvarchar(100)) as begin
+ declare @today Datetime ;
+ select @today = format(getdate(),'yyyy-MM-dd');
+ declare @ThirtyDayAgo Datetime;
+ select @ThirtyDayAgo = format( DATEADD(day, -29, @today),'yyyy-MM-dd');
+ declare @tomorrow Datetime;
+ select @tomorrow = format( DATEADD(day, 1, @today),'yyyy-MM-dd');
+select * from Result where Result_LoaiKhi = @LoaiKhi and Result_CreateAt between @ThirtyDayAgo and @tomorrow
+end
+GO
 
 
 exec AddEmployee N'Đỗ Văn Xuân', 'admin','123',N'Kế toán', 1
