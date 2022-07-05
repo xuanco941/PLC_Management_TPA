@@ -5,7 +5,7 @@ namespace PLC_Management.Controllers
 {
     public class ResultController : Controller
     {
-        public IActionResult Index([FromQuery(Name = "tungay")] string? tungay, [FromQuery(Name = "toingay")] string? toingay, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "Oxi")] string Oxi,
+        public IActionResult Index([FromQuery(Name = "tungay")] string? tungay, [FromQuery(Name = "toingay")] string? toingay, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "Oxy")] string Oxy,
             [FromQuery(Name = "Nitor")] string Nitor, [FromQuery(Name = "numberResult")] int numberResult)
         {
 
@@ -50,7 +50,7 @@ namespace PLC_Management.Controllers
                 ViewBag.listResults = results;
 
             }
-            else if (tungay != null && toingay != null && (Oxi == null && Nitor == null))
+            else if (tungay != null && toingay != null && (Oxy == null && Nitor == null))
             {
 
                 ViewBag.host = $"result?tungay={tungay}&toingay={toingay}&page=";
@@ -81,7 +81,7 @@ namespace PLC_Management.Controllers
             }
             else
             {
-                string idOxi = Oxi != null ? "Oxi" : "null";
+                string idOxy = Oxy != null ? "Oxy" : "null";
                 string idNitor = Nitor != null ? "Nitor" : "null";
 
                 DateTime dateTime1 = Convert.ToDateTime(tungay);
@@ -91,7 +91,7 @@ namespace PLC_Management.Controllers
 
                 try
                 {
-                    int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idOxi, idNitor);
+                    int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idOxy, idNitor);
                     int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
                     if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
                     {
@@ -99,20 +99,20 @@ namespace PLC_Management.Controllers
                     }
                     ViewBag.countPage = countPage;
 
-                    string? hostOxi = "";
+                    string? hostOxy = "";
                     string? hostNitor = "";
 
-                    if (Oxi != null)
+                    if (Oxy != null)
                     {
-                        hostOxi = "Oxi=on&";
+                        hostOxy = "Oxy=on&";
                     }
                     if (Nitor != null)
                     {
                         hostNitor = "Nitor=on&";
                     }
 
-                    ViewBag.host = $"result?{hostOxi}{hostNitor}tungay={tungay}&toingay={toingay}&page=";
-                    results = resultBusiness.GetResultByDayAndParameter(strDatime1, strDatime2, idOxi, idNitor, page);
+                    ViewBag.host = $"result?{hostOxy}{hostNitor}tungay={tungay}&toingay={toingay}&page=";
+                    results = resultBusiness.GetResultByDayAndParameter(strDatime1, strDatime2, idOxy, idNitor, page);
                 }
                 catch
                 {
@@ -122,13 +122,13 @@ namespace PLC_Management.Controllers
 
             }
 
-            ViewBag.checkOxi = Oxi != null ? "checked" : null;
+            ViewBag.checkOxy = Oxy != null ? "checked" : null;
             ViewBag.checkNitor = Nitor != null ? "checked" : null;
 
 
-            if (Oxi == null && Nitor == null)
+            if (Oxy == null && Nitor == null)
             {
-                ViewBag.checkOxi = "checked";
+                ViewBag.checkOxy = "checked";
                 ViewBag.checkNitor = "checked";
             }
             ViewBag.tungay = tungay;
@@ -145,14 +145,14 @@ namespace PLC_Management.Controllers
         {
             try
             {
-                ResultBusiness.DeleteResultByIDAndParameter(deleteResult.start_id, deleteResult.end_id, deleteResult.Oxi, deleteResult.Nitor);
+                ResultBusiness.DeleteResultByIDAndParameter(deleteResult.start_id, deleteResult.end_id, deleteResult.Oxy, deleteResult.Nitor);
 
             }
             catch
             {
                 //loi xoa
             }
-            return Json(new { deleteResult.start_id, deleteResult.end_id, deleteResult.Oxi, deleteResult.Nitor });
+            return Json(new { deleteResult.start_id, deleteResult.end_id, deleteResult.Oxy, deleteResult.Nitor });
         }
 
         [HttpPost]

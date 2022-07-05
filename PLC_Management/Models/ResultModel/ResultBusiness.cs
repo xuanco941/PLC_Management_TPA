@@ -64,7 +64,7 @@ namespace PLC_Management.Models.ResultModel
             return list;
         }
 
-        public List<Result> GetResultByDayAndParameter(string tungay, string toingay, string Oxi, string Nitor, int? page)
+        public List<Result> GetResultByDayAndParameter(string tungay, string toingay, string Oxy, string Nitor, int? page)
         {
             List<Result> list = new List<Result>();
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
@@ -74,11 +74,11 @@ namespace PLC_Management.Models.ResultModel
             {
                 int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE;
                 int? end = page * Common.NUMBER_ELM_ON_PAGE;
-                sql = $"exec paginationResultByDayAndParameter {start},{end},'{tungay}','{toingay}','{Oxi}','{Nitor}'";
+                sql = $"exec paginationResultByDayAndParameter {start},{end},'{tungay}','{toingay}','{Oxy}','{Nitor}'";
             }
             else
             {
-                sql = $"exec FindResultDayToDayByParameter '{tungay}', '{toingay}','{Oxi}','{Nitor}'";
+                sql = $"exec FindResultDayToDayByParameter '{tungay}', '{toingay}','{Oxy}','{Nitor}'";
             }
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             //loi
@@ -126,11 +126,11 @@ namespace PLC_Management.Models.ResultModel
             return num;
         }
 
-        public static int CountResultByParameterAndDay(string tungay, string toingay, string idOxi, string idNitor)
+        public static int CountResultByParameterAndDay(string tungay, string toingay, string idOxy, string idNitor)
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
-            string sql = $"exec CountResultByParameterAndDay '{tungay}', '{toingay}', '{idOxi}', '{idNitor}'";
+            string sql = $"exec CountResultByParameterAndDay '{tungay}', '{toingay}', '{idOxy}', '{idNitor}'";
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             SqlDataReader sqlDataReader = command.ExecuteReader();
             int num = 0;
@@ -167,12 +167,12 @@ namespace PLC_Management.Models.ResultModel
             sqlConnection.Close();
         }
 
-        public static void DeleteResultByIDAndParameter(int startID, int endID, string Oxi, string Nitor)
+        public static void DeleteResultByIDAndParameter(int startID, int endID, string Oxy, string Nitor)
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"exec DeleteResultByIDAndParameter {startID}, {@endID}, '{Oxi}', '{Nitor}'";
+            command.CommandText = $"exec DeleteResultByIDAndParameter {startID}, {@endID}, '{Oxy}', '{Nitor}'";
 
             command.Connection = sqlConnection;
 

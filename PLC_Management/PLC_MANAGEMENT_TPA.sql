@@ -78,28 +78,28 @@ GO
 
 
  --pagination paraID and day
- create proc paginationResultByDayAndParameter @startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@Oxi nvarchar(100), @Nitor nvarchar(100) 
+ create proc paginationResultByDayAndParameter @startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@Oxy nvarchar(100), @Nitor nvarchar(100) 
  as begin 
   select * from (SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
 (Result_CreateAt BETWEEN
 @Time1 AND
- @Time2) AND (Result_LoaiKhi = @Oxi OR Result_LoaiKhi = @Nitor )) as a WHERE a.row > @startfrom and a.row <= @endto  
+ @Time2) AND (Result_LoaiKhi = @Oxy OR Result_LoaiKhi = @Nitor )) as a WHERE a.row > @startfrom and a.row <= @endto  
  end
  GO
 
- CREATE PROC FindResultDayToDayByParameter @Time1 DateTime , @Time2 DateTime,@Oxi nvarchar(100), @Nitor nvarchar(100)
+ CREATE PROC FindResultDayToDayByParameter @Time1 DateTime , @Time2 DateTime,@Oxy nvarchar(100), @Nitor nvarchar(100)
 as begin
 SELECT * FROM Result WHERE( 
 Result_CreateAt BETWEEN
 @Time1 AND
- @Time2) and (Result_LoaiKhi = @Oxi OR Result_LoaiKhi = @Nitor) order by Result.Result_ID DESC
+ @Time2) and (Result_LoaiKhi = @Oxy OR Result_LoaiKhi = @Nitor) order by Result.Result_ID DESC
 end
 GO
 
 --Dem result theo ngay, theo parameter
-CREATE PROC CountResultByParameterAndDay @Time1 DateTime, @Time2 DateTime, @Oxi nvarchar(100), @Nitor nvarchar(100)
+CREATE PROC CountResultByParameterAndDay @Time1 DateTime, @Time2 DateTime, @Oxy nvarchar(100), @Nitor nvarchar(100)
 as begin
-select count(*) from Result where (Result.Result_LoaiKhi = @Oxi OR Result.Result_LoaiKhi = @Nitor) and (Result.Result_CreateAt between @Time1 and @Time2) 
+select count(*) from Result where (Result.Result_LoaiKhi = @Oxy OR Result.Result_LoaiKhi = @Nitor) and (Result.Result_CreateAt between @Time1 and @Time2) 
 end
 GO
 
@@ -114,9 +114,9 @@ end
 GO
 
  -- delete result by ID
- CREATE proc DeleteResultByIDAndParameter (@startID int, @endID int, @Oxi nvarchar(100), @Nitor nvarchar(100))
+ CREATE proc DeleteResultByIDAndParameter (@startID int, @endID int, @Oxy nvarchar(100), @Nitor nvarchar(100))
  as begin
- Delete From Result Where (Result.Result_ID >= @startID and Result.Result_ID <= @endID) and (Result.Result_LoaiKhi = @Oxi OR Result_LoaiKhi = @Nitor) 
+ Delete From Result Where (Result.Result_ID >= @startID and Result.Result_ID <= @endID) and (Result.Result_LoaiKhi = @Oxy OR Result_LoaiKhi = @Nitor) 
  end
  GO
 
@@ -224,7 +224,7 @@ Activity_Time BETWEEN
 
 
  --Chart
- -- lấy dữ liệu của Oxi hoặc Nitor trong ngày hiện tại
+ -- lấy dữ liệu của Oxy hoặc Nitor trong ngày hiện tại
  CREATE PROC GetDataToday (@LoaiKhi nvarchar(100)) as begin
  declare @today Datetime ;
  select @today = format(getdate(),'yyyy-MM-dd');
@@ -234,7 +234,7 @@ select * from Result where Result_LoaiKhi = @LoaiKhi and Result_CreateAt between
 end
 GO
 
- -- lấy dữ liệu của Oxi hoặc Nitor trong 1 tuần gần nhất
+ -- lấy dữ liệu của Oxy hoặc Nitor trong 1 tuần gần nhất
  CREATE PROC GetDataSevenDaysAgo (@LoaiKhi nvarchar(100)) as begin
  declare @today Datetime ;
  select @today = format(getdate(),'yyyy-MM-dd');
@@ -246,7 +246,7 @@ select * from Result where Result_LoaiKhi = @LoaiKhi and Result_CreateAt between
 end
 GO
 
- -- lấy dữ liệu của Oxi hoặc Nitor trong 30 ngày gần nhất
+ -- lấy dữ liệu của Oxy hoặc Nitor trong 30 ngày gần nhất
  CREATE PROC GetDataThirtyDaysAgo (@LoaiKhi nvarchar(100)) as begin
  declare @today Datetime ;
  select @today = format(getdate(),'yyyy-MM-dd');

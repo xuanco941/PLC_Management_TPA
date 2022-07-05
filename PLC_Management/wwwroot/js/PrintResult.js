@@ -7,10 +7,10 @@ document.querySelector('#btn-print').onclick = () => {
     let toingay_p = params.get('toingay');
 
 
-    let textOxi = params.get('Oxi') ? 'Oxi,' : '';
+    let textOxy = params.get('Oxy') ? 'Oxy,' : '';
     let textNitor = params.get('Nitor') ? 'Nitor,' : '';
 
-    console.log(tungay_p, toingay_p, textOxi, textNitor);
+    console.log(tungay_p, toingay_p, textOxy, textNitor);
 
 
     var printdata = document.getElementById('print_data');
@@ -26,8 +26,8 @@ document.querySelector('#btn-print').onclick = () => {
 
 
     var divChildren2 = document.createElement('div');
-    if (textOxi || textNitor) {
-        var textvalue = `${textOxi + textNitor}`;
+    if (textOxy || textNitor) {
+        var textvalue = `${textOxy + textNitor}`;
         divChildren2.textContent = '(' + textvalue.substr(0, textvalue.lastIndexOf(',')) + ')';
     }
 

@@ -27,8 +27,8 @@ window.addEventListener('load', () => {
             return parameter_ids.textContent.toString().trim();
         });
 
-        //neu co oxi thi gan oxi, neu co nitor thi gan voi nitor
-        var Oxi = arrParameter.indexOf('Oxi') > -1 ? 'Oxi' : 'null';
+        //neu co oxy thi gan oxy, neu co nitor thi gan voi nitor
+        var Oxy = arrParameter.indexOf('Oxy') > -1 ? 'Oxy' : 'null';
         var Nitor = arrParameter.indexOf('Nitor') > -1 ? 'Nitor' : 'null';
 
         //gui len back-end
@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ start_id, end_id, Oxi, Nitor })
+            body: JSON.stringify({ start_id, end_id, Oxy, Nitor })
         }).then(res => res.json()).then((data) => {
             Results.forEach((elm) => {
                 elm.remove();

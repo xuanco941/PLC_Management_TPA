@@ -3,71 +3,115 @@
 }
 <link rel="stylesheet" href="~/css/Dashboard.css">
 
-
-<div class="grid_menu">
-    <div class="row row_menu">
-        <div class="col-12 text-danger" style="font-size:24px; text-align:center; width:100%; margin-bottom:15px;" id="message_error_connect"></div>
-        <div class="col-12 tabLeft">
-            <h2 style="text-align: center;">
-                Thông số hiện tại
-            </h2>
-
-            <table class="table table-bordered table_thongso">
-                <thead>
-                    <tr>
-                        <th scope="col">Loại khí</th>
-                        <th scope="col">Áp suất</th>
-                        <th scope="col">Lưu lượng</th>
-                        <th scope="col">Thể tích</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Oxi</td>
-                        <td id="ApSuatOxi">0</td>
-                        <td id="LuuLuongOxi">0</td>
-                        <td id="TheTichOxi">0</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Nitor</td>
-                        <td id="ApSuatNitor">0</td>
-                        <td id="LuuLuongNitor">0</td>
-                        <td id="TheTichNitor">0</td>
-                    </tr>
-
-
-                </tbody>
-            </table>
-
-
+<div class="row p-3 shadow-lg mb-2 bg-white rounded" style="display:flex;justify-content:space-evenly;">
+    <div class="col-12" style="text-align:center; color:#000">
+        <h2>Oxy</h2>
+    </div>
+    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">0</h5>
         </div>
-
-        <div style="width:100%;display: flex;justify-content: center;">
-            <div style="background-color: rgba(0, 0, 0, 0.3); width: 65%;height: 1px;"></div>
+    </div>
+    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">100</h5>
         </div>
+    </div>
+    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">110</h5>
+        </div>
+    </div>
+    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">32</h5>
+        </div>
+    </div>
+</div>
 
-        <div class="col-12 tabRight">
-            <div class="tuLayMau">
-                <h2 style="text-align: center; font-weight:600;">
-                    Cài đặt
-                </h2>
 
-                <div class="luuLuong">
 
-                    <div class="box_luuLuongra">
-                        <label for="input_luuluongvao" style="font-size:18px; font-weight:600">Áp suất</label>
-                        <input class="readonly_input" style="width:300px;" type="number" id="input_luuluongvao" placeholder="bar">
-                        <button class="btn btn-primary" id="btn_doluuluongvao" type="button" style="padding-left:20px; padding-right:20px; margin-top:10px; margin-bottom:10px;">Lưu</button>
-                        <label for="input_luuluongra" style="font-size:18px; font-weight:600">Thời gian nạp giới hạn</label>
-                        <input class="readonly_input" style="width:300px;" type="number" id="input_luuluongra" placeholder="phút">
-                        <button class="btn btn-primary" id="btn_doluuluongra" type="button" style="padding-left:20px; padding-right:20px; margin-top:10px; margin-bottom:10px;">Lưu</button>
-                    </div>
+<div class="row p-3 shadow-lg mb-2 bg-white rounded" style="display:flex;justify-content:space-evenly;">
+    <div class="col-12" style="text-align:center; color:#000">
+        <h2>Nitor</h2>
+    </div>
+    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">0</h5>
+        </div>
+    </div>
+    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">100</h5>
+        </div>
+    </div>
+    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">110</h5>
+        </div>
+    </div>
+    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">32</h5>
+        </div>
+    </div>
+</div>
 
-                </div>
+
+
+<div class="row bg-white p-3 shadow-lg mb-3 rounded">
+    <div class="col-6">
+        <div class="tile">
+            <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="chart"></canvas>
             </div>
         </div>
     </div>
+    <div class="col-6">
 
-    @section Scripts{
-        <script src="~/js/Dashboard.js"></script>
-    }
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/ChartJS/chartjs.min.js"></script>
+    <script src="~/js/Dashboard.js"></script>
+    <script>
+        const data = {
+            labels: [
+                'Red',
+                'Green',
+                'Yellow',
+                'Grey',
+                'Blue'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [11, 16, 7, 3, 14],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(75, 192, 192)',
+                    'rgb(255, 205, 86)',
+                    'rgb(201, 203, 207)',
+                    'rgb(54, 162, 235)'
+                ]
+            }]
+        };
+
+        const config = {
+            type: 'polarArea',
+            data: data,
+            options: {}
+        };
+
+        const chart = new Chart($("#chart").get(0).getContext("2d"), config);
+    </script>
+
+}
