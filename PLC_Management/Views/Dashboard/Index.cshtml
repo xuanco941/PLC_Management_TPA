@@ -7,26 +7,26 @@
     <div class="col-12" style="text-align:center; color:#000">
         <h2>Oxy</h2>
     </div>
-    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+    <div class="col-3 card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Áp suất nạp(bar)</div>
         <div class="card-body">
             <h5 class="card-title">0</h5>
         </div>
     </div>
     <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+        <div class="card-header">Thể tích nạp</div>
         <div class="card-body">
             <h5 class="card-title">100</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+    <div class="col-3 card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header">Áp suất lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">110</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Lưu lượng lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">32</h5>
         </div>
@@ -39,26 +39,26 @@
     <div class="col-12" style="text-align:center; color:#000">
         <h2>Nitor</h2>
     </div>
-    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+    <div class="col-3 card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Áp suất nạp(bar)</div>
         <div class="card-body">
             <h5 class="card-title">0</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header">Thể tích nạp</div>
         <div class="card-body">
             <h5 class="card-title">100</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+    <div class="col-3 card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header">Áp suất lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">110</h5>
         </div>
     </div>
     <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+        <div class="card-header">Lưu lượng lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">32</h5>
         </div>
@@ -68,18 +68,18 @@
 
 
 <div class="row bg-white p-3 shadow-lg mb-3 rounded">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <div class="tile">
             <div class="embed-responsive embed-responsive-16by9">
                 <canvas class="embed-responsive-item" id="chart"></canvas>
             </div>
         </div>
     </div>
-    <div class="col-6 card text-black bg-light">
+    <div class="col-12 col-md-6 card text-black bg-light">
         <h4 class="card-header text-center ">Cài đặt</h4>
         <div class="card-body">
             <div>
-                <p class="text-muted" style="font-size:14px;">Áp suất: 5</p>
+                <p class="text-muted" style="font-size:14px;">Áp suất: 5 bar</p>
                 <p class="text-muted" style="font-size:14px;">Thời gian nạp giới hạn: 2 phút</p>
                 <p class="text-muted" style="font-size:14px;">Tự động ngắt khi đạt áp suất và thể tích nạp: Bật</p>
             </div>
@@ -87,30 +87,36 @@
 
             <div>
                 <div class="input-group mb-3" style="display:flex; align-items:center; flex-wrap:nowrap;">
-                    <div class="input-group-prepend" style="width:70%;">
+                    <div class="input-group-prepend" >
                         <span class="input-group-text" id="inputGroup-sizing-default">Tự động ngắt khi đạt áp suất và thể tích </span>
                     </div>
-                    <label class="switch" style="margin-left:15px;">
+                    <label class="switch" style="margin-left:35px;">
                         <input id="autoNgat" type="checkbox">
                         <span class="slider"></span>
                     </label>
                 </div>
                 <div>
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend" style="width:70%;">
+                        <div class="input-group-prepend" >
                             <span class="input-group-text" id="inputGroup-sizing-default">Áp suất (bar)</span>
                         </div>
                         <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <div class="input-group-prepend" style="width:70%;">
+                    <div class="input-group-prepend" >
                         <span class="input-group-text" id="inputGroup-sizing-default">Thời gian nạp giới hạn (phút) </span>
                     </div>
                     <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" >
+                        <span class="input-group-text" id="inputGroup-sizing-default">Thời gian tự động lưu (giây/lần) </span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
             </div>
-            <div style="display:flex;justify-content:center;">
+            <div style="display:flex;justify-content:center; margin-top:20px;">
                 <button type="button" class="btn btn-success px-4 py-2">Lưu lại</button>
             </div>
 
