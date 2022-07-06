@@ -1,9 +1,9 @@
-:root{
+:root {
     --bg-menu-color: #212529;
     --border: 1px solid rgba(255, 255, 255, 0.1);
     --hover-item-menu-color: #0d6efd;
-    --text-color-menu: #fff; 
-    --bg-color: #f0f2f5;
+    --text-color-menu: #fff;
+    --bg-color: #a5c3ef;
 }
 body{
     padding: 0;

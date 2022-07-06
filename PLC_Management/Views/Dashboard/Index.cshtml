@@ -1,9 +1,9 @@
-@{
+﻿@{
     Layout = "_Layout";
 }
 <link rel="stylesheet" href="~/css/Dashboard.css">
 
-<div class="row p-3 shadow-lg mb-2 bg-white rounded" style="display:flex;justify-content:space-evenly;">
+<div class="row p-3 shadow-lg mb-2 mt-2 bg-white rounded" style="display:flex;justify-content:space-evenly;">
     <div class="col-12" style="text-align:center; color:#000">
         <h2>Oxy</h2>
     </div>
@@ -75,7 +75,47 @@
             </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-6 card text-black bg-light">
+        <h4 class="card-header text-center ">Cài đặt</h4>
+        <div class="card-body">
+            <div>
+                <p class="text-muted" style="font-size:14px;">Áp suất: 5</p>
+                <p class="text-muted" style="font-size:14px;">Thời gian nạp giới hạn: 2 phút</p>
+                <p class="text-muted" style="font-size:14px;">Tự động ngắt khi đạt áp suất và thể tích nạp: Bật</p>
+            </div>
+            <div style="width:100%; height:1px; background-color:rgba(0,0,0,0.1); margin-top:25px;margin-bottom:25px;"></div>
+
+            <div>
+                <div class="input-group mb-3" style="display:flex; align-items:center; flex-wrap:nowrap;">
+                    <div class="input-group-prepend" style="width:70%;">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Tự động ngắt khi đạt áp suất và thể tích </span>
+                    </div>
+                    <label class="switch" style="margin-left:15px;">
+                        <input id="autoNgat" type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend" style="width:70%;">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Áp suất (bar)</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" style="width:70%;">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Thời gian nạp giới hạn (phút) </span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div style="display:flex;justify-content:center;">
+                <button type="button" class="btn btn-success px-4 py-2">Lưu lại</button>
+            </div>
+
+
+        </div>
 
     </div>
 </div>

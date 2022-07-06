@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="~/css/Record.css" />
 
 <div class="row">
-    <div class="col-12" style="margin-top:25px;">
+    <div class="col-12" style="margin-top:20px; margin-bottom:20px;">
         <h1 style="text-align: center;">
             Lịch Sử Nạp Khí
         </h1>
@@ -16,7 +16,7 @@
 
     @*    part1
     *@
-    <div class="row bg-light" style="padding-right:2px; padding-left:2px; margin-top:20px; margin-left:auto;margin-right:auto;">
+    <div class="row shadow rounded bg-light p-2" style="margin-left:auto;margin-right:auto;">
         <div class="col-6 col-xl-7">
             <div style="margin-bottom:15px;">
                 <select>
@@ -80,8 +80,8 @@
 
     @*    part2
     *@
-    <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
-        <div class="col-12" style="display:flex; justify-content:space-between; margin-top:25px;">
+    <div class="col-12 shadow bg-white rounded" style="margin-top:10px; margin-bottom:10px;">
+        <div class="p-2" style="display:flex; justify-content:space-between; align-content:center;">
             <form method="get">
                 <input class="font_size_reponsive" id="numberResult" placeholder="@ViewBag.NUMBER_ELM_ON_PAGE hàng" style="text-align:center;width:90px; font-size:14px; height:36px;" name="numberResult" type="number" />
                 <button type="submit" class="btn-primary btn font_size_reponsive">Thay đổi</button>
