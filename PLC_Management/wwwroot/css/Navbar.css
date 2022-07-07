@@ -1,11 +1,13 @@
-﻿.menu-options {
+﻿#MenuNgang{
+    display:none;
+}
+.menu-options {
     position: absolute;
     right: 0;
     background-color: #fff;
     font-size: 14px;
-    padding:10px;
-    display:none;
-
+    padding: 10px;
+    display: none;
 }
 .item-menu-options:hover {
     background-color: var(--hover-item-menu-color);
@@ -17,4 +19,7 @@
 .item-menu-options{
     margin-top:5px;
     margin-bottom:5px;
+}
+.swapToMenuDoc{
+    cursor:pointer;
 }

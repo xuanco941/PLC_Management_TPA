@@ -60,7 +60,7 @@
                     <i class="fa-solid fa-gear" style="margin-right:5px; font-size:19px; margin-bottom:2.5px;"></i>
                     Tùy chọn
                     <div class="menu-option-sidenav shadow-sm">
-                        <div class="item-menu-options-sidenav ">Menu ngang</div>
+                        <div class="item-menu-options-sidenav " id="swapToMenuNgang">Menu ngang</div>
                         <div class="item-menu-options-sidenav ">Chế độ tối</div>
                     </div>
                 </div>
@@ -86,113 +86,92 @@
 
 
     <!-- header top -->
-    @*  <header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow rounded" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-    <a class="navbar-toggler"
-    href="#" role="button"
-    data-mdb-toggle="collapse"
-    aria-expanded="false"
-    id="dropdownMenuLink" data-bs-toggle="dropdown"
-    aria-label="Toggle navigation">
-    <i class="fas fa-bars"></i>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item link_header" data-link-name="dashboard" href="/dashboard">Theo dõi và cài đặt</a></li>
-    <li><a class="dropdown-item link_header" data-link-name="result" href="/result">Lịch sử nạp khí</a></li>
-    <li><a class="dropdown-item link_header" data-link-name="activity" href="/activity">Hoạt động</a></li>
-    <li><a class="dropdown-item link_header" data-link-name="chart" href="/chart">Thống kê</a></li>
-    @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
-    {
-    <li><a class="dropdown-item link_header" data-link-name="employee" href="/employee">Nhân viên</a></li>
-    }
-    <li>
-    <button class="dropdown-item" id="btn-option">
-    Tùy chọn
-    <div class="menu-options shadow-sm">
-    <div class="item-menu-options">Menu dọc</div>
-    <div class="item-menu-options">Chế độ tối</div>
-    </div>
-    </button>
-    </li>
-    <li><a class="dropdown-item" href="/login/logout">Đăng xuất</a></li>
-    </ul>
+    <header id="MenuNgang">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow rounded" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <a class="navbar-toggler"
+                   href="#" role="button"
+                   data-mdb-toggle="collapse"
+                   aria-expanded="false"
+                   id="dropdownMenuLink" data-bs-toggle="dropdown"
+                   aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item link_header" data-link-name="dashboard" href="/dashboard">Theo dõi và cài đặt</a></li>
+                    <li><a class="dropdown-item link_header" data-link-name="result" href="/result">Lịch sử nạp khí</a></li>
+                    <li><a class="dropdown-item link_header" data-link-name="activity" href="/activity">Hoạt động</a></li>
+                    <li><a class="dropdown-item link_header" data-link-name="chart" href="/chart">Thống kê</a></li>
+                    @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
+                    {
+                        <li><a class="dropdown-item link_header" data-link-name="employee" href="/employee">Nhân viên</a></li>
+                    }
+                    <li>
+                        <button class="dropdown-item" id="btn-option">
+                            Tùy chọn
+                            <div class="menu-options shadow-sm">
+                                <div class="item-menu-options swapToMenuDoc">Menu dọc</div>
+                                <div class="item-menu-options">Chế độ tối</div>
+                            </div>
+                        </button>
+                    </li>
+                    <li><a class="dropdown-item" href="/login/logout">Đăng xuất</a></li>
+                </ul>
 
 
 
-    <div class="collapse navbar-collapse" style="flex-grow:unset;" id="navbar1">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link link_header" data-link-name="dashboard" href="/dashboard">Theo dõi và cài đặt</a>
-    </li>
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link link_header" data-link-name="result" href="/result">Lịch sử nạp khí</a>
-    </li>
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link link_header" data-link-name="activity" href="/activity">Hoạt động</a>
-    </li>
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link link_header" data-link-name="chart" href="/chart">Thống kê</a>
-    </li>
-    @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
-    {
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link link_header" data-link-name="employee" href="/employee">Nhân viên</a>
-    </li>
-    }
-    </ul>
-    </div>
+                <div class="collapse navbar-collapse" style="flex-grow:unset;" id="navbar1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a style="font-size:18px;" class="nav-link link_header" data-link-name="dashboard" href="/dashboard">Theo dõi và cài đặt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-size:18px;" class="nav-link link_header" data-link-name="result" href="/result">Lịch sử nạp khí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-size:18px;" class="nav-link link_header" data-link-name="activity" href="/activity">Hoạt động</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-size:18px;" class="nav-link link_header" data-link-name="chart" href="/chart">Thống kê</a>
+                        </li>
+                        @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
+                        {
+                            <li class="nav-item">
+                                <a style="font-size:18px;" class="nav-link link_header" data-link-name="employee" href="/employee">Nhân viên</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
 
-    <a style="display:flex;" href="">
-    <img src="~/img/logo.png" height="60" />
-    </a>
+                <a style="display:flex;" href="">
+                    <img src="~/img/logo.png" height="60" />
+                </a>
 
 
-    <div class="collapse navbar-collapse" style="flex-grow:unset;" id="navbar2">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width:100%;display:flex;justify-content:end;flex-wrap:nowrap;">
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link" href="">Menu dọc</a>
-    </li>
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link" href="">Chế độ tối</a>
-    </li>
-    <li class="nav-item">
-    <a style="font-size:18px;" class="nav-link" href="/login/logout">Đăng xuất</a>
-    </li>
+                <div class="collapse navbar-collapse" style="flex-grow:unset;" id="navbar2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width:100%;display:flex;justify-content:end;flex-wrap:nowrap;">
+                        <li class="nav-item">
+                            <span style="font-size:18px;" class="nav-link swapToMenuDoc">Menu dọc</span>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-size:18px;" class="nav-link" href="">Chế độ tối</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-size:18px;" class="nav-link" href="/login/logout">Đăng xuất</a>
+                        </li>
 
-    </ul>
-    </div>
-    </div>
-    </nav>
-    <!-- Navbar -->
-    <!-- Jumbotron -->
-    <div style="margin-top: 78px;">
-    </div>
-    <!-- Jumbotron -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+        <!-- Jumbotron -->
+        <div style="margin-top: 78px;">
+        </div>
+        <!-- Jumbotron -->
     </header>
-    <script>
-    //active text link header
-    var str = window.location.pathname.toString();
-    var arrlink = Array.from(document.querySelectorAll('.link_header'));
-    arrlink.forEach((e) => {
 
-    if (str.toUpperCase().indexOf(e.getAttribute('data-link-name').toUpperCase()) > -1) {
-    e.classList.add('active');
-    }
-    })
-
-    var navbar1 = document.querySelector('#navbar1');
-    var navbar2 = document.querySelector('#navbar2');
-
-    navbar2.style.width = navbar1.offsetWidth + 'px';
-
-    window.onresize = () => {
-    navbar2.style.width = navbar1.offsetWidth + 'px';
-    }
-
-    </script>
-    *@
 
 
 
@@ -247,6 +226,7 @@
     <script src="~/lib/bootstrap_min.js"></script>
     <script src="~/lib/bootstrap_bundle_min.js"></script>
     <script src="~/js/Toast.js"></script>
+    <script src="~/js/LayoutOption.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 
