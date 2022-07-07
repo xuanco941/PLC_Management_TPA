@@ -1,0 +1,20 @@
+﻿.menu-options {
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    font-size: 14px;
+    padding:10px;
+    display:none;
+
+}
+.item-menu-options:hover {
+    background-color: var(--hover-item-menu-color);
+    color:white;
+}
+#btn-option:hover .menu-options{
+    display:block;
+}
+.item-menu-options{
+    margin-top:5px;
+    margin-bottom:5px;
+}

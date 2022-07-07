@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pwyh31PuGkPrq9v05SrBi+h63f6bcQ4wYeN4xDia2+o=",
+  "Hash": "C9J69bY9hETsg7Wv6voBBxFmkXXUI4IIBlI/q4lReQc=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Main.css"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Navbar.css",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "css/Navbar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Navbar.css"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Record.css",
