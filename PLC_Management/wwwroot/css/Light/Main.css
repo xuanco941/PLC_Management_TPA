@@ -16,3 +16,8 @@ a{
     text-decoration: none;
     color: var(--text-color-menu);
 }
+
+.h1-header {
+    font-family: Corbel;
+    text-align:center;
+}

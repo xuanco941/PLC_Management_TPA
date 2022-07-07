@@ -7,14 +7,12 @@
     int? IDMain = @HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN);
 }
 
-<link rel="stylesheet" href="~/css/Employee.css" />
+<link rel="stylesheet" href="~/css/Light/Employee.css" />
 <div class="row ">
     <div class="col-12" style="margin-top:20px; margin-bottom:20px;">
-        <a href="" class="title_dashboard">
-            <h1 style="text-align: center;">
-                Tài Khoản Thành Viên
-            </h1>
-        </a>
+        <h1 class="h1-header">
+            Tài Khoản Thành Viên
+        </h1>
     </div>
     <div class="col-12 shadow p-3 mb-4 bg-white rounded">
         <!--Table-->
@@ -202,7 +200,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc chắn muốn xóa tài khoản này?</h5>
             </div>
-         
+
             <div class="modal-footer">
                 <button type="button" id="btnDeleteSubmit" data-dismiss="modal" class="btn btn-danger">Có</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>

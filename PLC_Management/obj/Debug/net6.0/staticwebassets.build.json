@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NYA1YKTAalcdtI+2y2cO4e39jw874LQqdphvlu0pa1M=",
+  "Hash": "FuehwE+kLnB/4kzERuo8gaIFZtU8MzkVBPHnf+b9B1Y=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -51,12 +51,12 @@
       "OriginalItemSpec": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PLC_Management.bundle.scp.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Dashboard.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\Dashboard.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Dashboard.css",
+      "RelativePath": "css/Light/Dashboard.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,15 +65,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Dashboard.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\Dashboard.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Employee.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\Employee.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Employee.css",
+      "RelativePath": "css/Light/Employee.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,15 +82,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Employee.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\Employee.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Login.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\Login.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Login.css",
+      "RelativePath": "css/Light/Login.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,15 +99,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Login.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\Login.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Main.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\Main.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Main.css",
+      "RelativePath": "css/Light/Main.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Main.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\Main.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Navbar.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\Navbar.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Navbar.css",
+      "RelativePath": "css/Light/Navbar.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Navbar.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\Navbar.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Record.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\Record.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Record.css",
+      "RelativePath": "css/Light/Record.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Record.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\Record.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\SideNav.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\SideNav.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/SideNav.css",
+      "RelativePath": "css/Light/SideNav.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\SideNav.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\SideNav.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Toast.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Light\\Toast.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Toast.css",
+      "RelativePath": "css/Light/Toast.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,7 +184,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Toast.css"
+      "OriginalItemSpec": "wwwroot\\css\\Light\\Toast.css"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\img\\logo.png",
