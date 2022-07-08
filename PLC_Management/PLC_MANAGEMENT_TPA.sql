@@ -40,7 +40,69 @@ UpdateAt DateTime
 )
 GO
 
+CREATE TABLE ClientSetting(
+Employee_ID INT PRIMARY KEY,
+DarkMode bit
+)
+GO
+
+
+/*Trigger*/
+-- Add Employee
+Create TRIGGER AutoAddSetting
+on Employee for INSERT
+AS begin
+if((exists(select Employee_ID from inserted)))
+begin
+declare @Employee_ID INT;
+select @Employee_ID = Employee_ID from inserted;
+	INSERT INTO ClientSetting (Employee_ID,DarkMode) values (@Employee_ID,0);
+end
+end
+
+GO
+
+-- Delete Employee
+Create TRIGGER AutoDeleteSetting
+on Employee for Delete
+AS begin
+if((exists(select Employee_ID from deleted)))
+begin
+declare @Employee_ID INT;
+select @Employee_ID = Employee_ID from deleted;
+	Delete From ClientSetting where Employee_ID = @Employee_ID;
+end
+end
+
+GO
+
+
+
 /* Procedure */
+
+--Update Setting Client
+CREATE PROC UpdateClientSetting @Employee_ID int
+as begin
+Declare @DarkMode bit;
+Select @DarkMode = (select TOP(1) DarkMode From ClientSetting where Employee_ID = @Employee_ID);
+if(@DarkMode=0)
+begin
+Update ClientSetting SET DarkMode = 1
+where Employee_ID = @Employee_ID
+end
+else
+begin
+Update ClientSetting SET DarkMode = 0
+where Employee_ID = @Employee_ID
+end
+
+end
+GO
+
+
+
+
+
  -- Them result
 CREATE PROC AddResult @Result_ApSuatNap FLOAT,@Result_TheTichNap FLOAT,@Result_LoaiKhi nvarchar(100),@Result_ApSuatLayMau NVARCHAR(100), @Result_LuuLuongLayMau NVARCHAR(100),@Result_ThoiGian TIME
 as begin
@@ -265,3 +327,5 @@ insert into Activity (Activity_Name) values ('Activity_Name')
 
 exec AddResult 100,23.4,'Nitor','1000',3004,'00:00:15'
 GO
+
+select * from ClientSetting

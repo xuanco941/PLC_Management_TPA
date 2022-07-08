@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PLC_Management;
 using PLC_Management.Models.EmployeeModel;
+using System.Data.SqlClient;
 
 namespace WebApplication1.Controllers;
 
@@ -45,6 +46,39 @@ public class LoginController : Controller
 
             //session check admin
             HttpContext.Session.SetInt32(Common.SESSION_ISADMIN, isAdmin);
+
+
+
+            //session check DarkMenu
+            bool darkMenu = false;
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
+                sqlConnection.Open();
+                string sql = $"select DarkMenu from ClientSetting where Employee_ID = {employee.ID}";
+                SqlCommand command = new SqlCommand(sql, sqlConnection);
+                SqlDataReader sqlDataReader = command.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    darkMenu = sqlDataReader.GetBoolean(0);
+                }
+                sqlConnection.Close();
+            }
+            catch
+            {
+                darkMenu = false;
+            }
+            if (darkMenu == true)
+            {
+                HttpContext.Session.SetInt32(Common.SESSION_DARKMENU, 1);
+            }
+            else
+            {
+                HttpContext.Session.SetInt32(Common.SESSION_DARKMENU, 0);
+            }
+
+
+
 
             return RedirectToAction("Index", "Dashboard");
         }

@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,16 +10,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap_min.css" />
-    <link rel="stylesheet" href="~/css/Light/Main.css" />
-    <link rel="stylesheet" href="~/css/Light/SideNav.css" />
-    <link rel="stylesheet" href="~/css/Light/Navbar.css" />
-    <link rel="stylesheet" href="~/css/Light/Toast.css" />
+
+    @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+    {
+
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/Light/Main.css" />
+        <link rel="stylesheet" href="~/css/Light/SideNav.css" />
+        <link rel="stylesheet" href="~/css/Light/Navbar.css" />
+        <link rel="stylesheet" href="~/css/Light/Toast.css" />
+    }
+
+
     <link rel="shortcut icon" href="~/img/logo.png" type="image/x-icon">
     <title>LeanWay</title>
 </head>
 
 <body>
-
 
 
     @*    SIDENAV
@@ -61,7 +71,17 @@
                     Tùy chọn
                     <div class="menu-option-sidenav shadow-sm">
                         <div class="item-menu-options-sidenav " id="swapToMenuNgang">Menu ngang</div>
-                        <div class="item-menu-options-sidenav ">Chế độ tối</div>
+
+                        <form class="item-menu-options-sidenav" method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
+                            @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+                            {
+                                <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ sáng</button>
+                            }
+                            else
+                            {
+                                <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ tối</button>
+                            }
+                        </form>
                     </div>
                 </div>
             </div>
@@ -108,13 +128,25 @@
                         <li><a class="dropdown-item link_header" data-link-name="employee" href="/employee">Nhân viên</a></li>
                     }
                     <li>
-                        <button class="dropdown-item" id="btn-option">
+                        <div class="dropdown-item" id="btn-option">
                             Tùy chọn
                             <div class="menu-options shadow-sm">
                                 <div class="item-menu-options swapToMenuDoc">Menu dọc</div>
-                                <div class="item-menu-options">Chế độ tối</div>
+
+                                <div class="item-menu-options">
+                                    <form method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
+                                        @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+                                        {
+                                            <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ sáng</button>
+                                        }
+                                        else
+                                        {
+                                            <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ tối</button>
+                                        }
+                                    </form>
+                                </div>
                             </div>
-                        </button>
+                        </div>
                     </li>
                     <li><a class="dropdown-item" href="/login/logout">Đăng xuất</a></li>
                 </ul>
@@ -155,7 +187,16 @@
                             <span style="font-size:13px;" class="nav-link swapToMenuDoc text-primary">Menu dọc</span>
                         </li>
                         <li class="nav-item">
-                            <a style="font-size:13px;" class="nav-link text-primary" href="">Chế độ tối</a>
+                            <form style="font-size:13px;" class="nav-link text-primary" method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
+                                @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+                                {
+                                    <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ sáng</button>
+                                }
+                                else
+                                {
+                                    <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ tối</button>
+                                }
+                            </form>
                         </li>
                         <li class="nav-item">
                             <a style="font-size:13px;" class="nav-link text-danger" href="/login/logout">Đăng xuất</a>
@@ -217,6 +258,8 @@
 
 
     <div class="container">
+        @ViewBag.darkMenu
+
         @RenderBody()
     </div>
 

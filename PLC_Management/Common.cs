@@ -14,6 +14,8 @@ namespace PLC_Management
 
         public const string SESSION_ISADMIN = "SESSION_ISADMIN";
 
+        public const string SESSION_DARKMENU = "SESSION_DARKMENU";
+
         public static int NUMBER_ELM_ON_PAGE = 50;
 
         public const int NUMBER_ELM_ON_PAGE_ACTIVITY = 50;
