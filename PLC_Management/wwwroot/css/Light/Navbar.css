@@ -23,3 +23,12 @@
 .swapToMenuDoc{
     cursor:pointer;
 }
+#navbar-menu-ngang {
+    background-color: #e3f2fd;
+}
+
+@media (max-width: 1350px) {
+    .link_header {
+        font-size:15px !important;
+    }
+}
