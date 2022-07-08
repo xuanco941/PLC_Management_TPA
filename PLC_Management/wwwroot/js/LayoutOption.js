@@ -1,5 +1,36 @@
 ﻿
 window.addEventListener('load', () => {
+
+
+    //active text link header
+    var str = window.location.pathname.toString();
+    var arrlink = Array.from(document.querySelectorAll('.link_header'));
+    arrlink.forEach((e) => {
+
+        if (str.toUpperCase().indexOf(e.getAttribute('data-link-name').toUpperCase()) > -1) {
+            e.classList.add('active');
+        }
+    })
+
+    var navbar1 = document.querySelector('#navbar1');
+    var navbar2 = document.querySelector('#navbar2');
+
+    setTimeout(() => {
+        navbar2.style.width = navbar1.offsetWidth + 'px';
+    }, 0);
+
+    window.onresize = () => {
+        navbar2.style.width = navbar1.offsetWidth + 'px';
+    }
+
+
+
+
+
+
+
+
+    // swap menu
     const swapToMenuNgang = document.querySelector('#swapToMenuNgang');
     const MenuNgang = document.querySelector('#MenuNgang');
     const MenuDoc = document.querySelector('#sidenav');
@@ -19,6 +50,7 @@ window.addEventListener('load', () => {
     swapToMenuNgang.addEventListener('click', () => {
         MenuNgang.style.display = 'block';
         MenuDoc.style.display = 'none';
+        navbar2.style.width = navbar1.offsetWidth + 'px';
         localStorage.setItem('menu', 'MenuNgang');
     })
 
@@ -29,27 +61,6 @@ window.addEventListener('load', () => {
             localStorage.setItem('menu', 'MenuDoc');
         })
     })
-
-
-
-    //active text link header
-    var str = window.location.pathname.toString();
-    var arrlink = Array.from(document.querySelectorAll('.link_header'));
-    arrlink.forEach((e) => {
-
-        if (str.toUpperCase().indexOf(e.getAttribute('data-link-name').toUpperCase()) > -1) {
-            e.classList.add('active');
-        }
-    })
-
-    var navbar1 = document.querySelector('#navbar1');
-    var navbar2 = document.querySelector('#navbar2');
-
-    navbar2.style.width = navbar1.offsetWidth + 'px';
-
-    window.onresize = () => {
-        navbar2.style.width = navbar1.offsetWidth + 'px';
-    }
 
 
 })

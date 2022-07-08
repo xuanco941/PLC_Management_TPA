@@ -83,40 +83,31 @@
                 <p class="text-muted" style="font-size:14px;">Thời gian nạp giới hạn: 2 phút</p>
                 <p class="text-muted" style="font-size:14px;">Tự động ngắt khi đạt áp suất và thể tích nạp: Bật</p>
             </div>
-            <div style="width:100%; height:1px; background-color:rgba(0,0,0,0.1); margin-top:25px;margin-bottom:25px;"></div>
 
-            <div>
-                <div class="input-group mb-3" style="display:flex; align-items:center; flex-wrap:nowrap;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Tự động ngắt khi đạt áp suất và thể tích </span>
-                    </div>
+            <div style="width:100%; height:1px; background-color:rgba(0,0,0,0.1); margin-top:35px;margin-bottom:35px;"></div>
+
+            <form>
+                <div class="form-group mb-3" style="display:flex; align-items:center;">
+                    <input type="text" class="form-control" id="formGroupExampleInput" readonly placeholder="Tự động ngắt khi đạt áp suất và thể tích nạp" style="background-color:#fff;">
+
                     <!-- Rounded switch -->
-                    <label class="switch" style="margin-left:50px;">
+                    <label class="switch" style="min-width:60px; position:absolute; right:30px;">
                         <input type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Áp suất (bar)</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                    </div>
+                <div class="form-group mb-3">
+                    <input type="number" class="form-control" id="" placeholder="Áp suất (bar)">
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Thời gian nạp giới hạn (phút) </span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <div class="form-group mb-3">
+                    <input type="number" class="form-control" id="" placeholder="Thời gian nạp giới hạn (phút)">
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Thời gian tự động lưu (giây/lần) </span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <div class="form-group mb-3">
+                    <input type="number" class="form-control" id="" placeholder="Thời gian tự động lưu bản ghi (giây/lần)">
                 </div>
-            </div>
+            </form>
+
+
             <div style="display:flex;justify-content:center; margin-top:20px;">
                 <button type="button" class="btn btn-success px-4 py-2">Lưu lại</button>
             </div>

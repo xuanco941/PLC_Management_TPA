@@ -4,6 +4,11 @@ const toast_container = document.querySelector('#toast_container');
 
 
 const ActiveToast = (type, title, content, time) => {
+    // sound
+    let audio = new Audio('audio/toast.mp3');
+    audio.play();
+
+    //popup
     let toast_clone = type == 'success' ? toast_success.cloneNode(true) : toast_danger.cloneNode(true);
     toast_clone.style.display = 'block';
     toast_clone.querySelector(':scope > .toast-header > .me-auto').textContent = title;
