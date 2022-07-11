@@ -1,0 +1,54 @@
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.item_modal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+    align-items: center;
+    font-size: 15px;
+}
+
+    .item_modal > input[type="text"], .grRadio {
+        width: 65%;
+    }
+
+    .item_modal > input[type="text"] {
+        height: 35px;
+    }
+
+        .item_modal > input[type="text"]:focus-visible {
+            outline: 1.5px;
+        }
+
+    .item_modal > label {
+        width: 20%;
+        text-align: end;
+        margin-right: 15px;
+    }
+.btn_update, .btn_xoa {
+    padding-left: 23px;
+    padding-right: 23px;
+}
+table, tr, td {
+    text-align:center;
+
+}
+@media (max-width: 999px) {
+
+    table, tr, td {
+        font-size: 11px;
+    }
+    .btn_update,.btn_xoa{
+        font-size:11px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

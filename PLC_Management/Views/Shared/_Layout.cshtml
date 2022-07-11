@@ -1,6 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
+@{
+    bool darkMenu = HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1 ? true : false;
+    bool isAdmin = HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1 ? true : false;
+    int? UserID = HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN);
+    string UserFullName = HttpContextAccessor.HttpContext.Session.GetString(Common.SESSION_USER_FULLNAME);
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,17 +18,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap_min.css" />
 
-    @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+    @if (darkMenu == true)
     {
-
+        <link rel="stylesheet" href="~/css/Dark/MainDark.css" />
+        <link rel="stylesheet" href="~/css/Dark/SideNavDark.css" />
+        <link rel="stylesheet" href="~/css/Dark/NavbarDark.css" />
     }
     else
     {
-        <link rel="stylesheet" href="~/css/Light/Main.css" />
-        <link rel="stylesheet" href="~/css/Light/SideNav.css" />
-        <link rel="stylesheet" href="~/css/Light/Navbar.css" />
-        <link rel="stylesheet" href="~/css/Light/Toast.css" />
+        <link rel="stylesheet" href="~/css/Light/MainLight.css" />
+        <link rel="stylesheet" href="~/css/Light/SideNavLight.css" />
+        <link rel="stylesheet" href="~/css/Light/NavbarLight.css" />
+
     }
+
+    <link rel="stylesheet" href="~/css/SideNav.css" />
+    <link rel="stylesheet" href="~/css/Navbar.css" />
+    <link rel="stylesheet" href="~/css/Toast.css" />
 
 
     <link rel="shortcut icon" href="~/img/logo.png" type="image/x-icon">
@@ -59,7 +72,7 @@
                     <i class="fa-solid fa-chart-line" style="margin-right:5px; font-size:19px; margin-bottom:2.5px;"></i>
                     Thống kê
                 </a>
-                @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
+                @if (isAdmin == true)
                 {
                     <a class="item_menu" href="/employee">
                         <i class="fa-solid fa-user-group " style="margin-right:5px; font-size:19px; margin-bottom:2.5px;"></i>
@@ -73,13 +86,13 @@
                         <div class="item-menu-options-sidenav " id="swapToMenuNgang">Menu ngang</div>
 
                         <form class="item-menu-options-sidenav" method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
-                            @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+                            @if (darkMenu == true)
                             {
-                                <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ sáng</button>
+                                <button class="button-swap-menu" value=@UserID name="employee_id" type="submit">Chế độ sáng</button>
                             }
                             else
                             {
-                                <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ tối</button>
+                                <button class="button-swap-menu" value=@UserID name="employee_id" type="submit">Chế độ tối</button>
                             }
                         </form>
                     </div>
@@ -89,7 +102,7 @@
         </div>
         <div class="user">
             <div class="user_info">
-                <span class="name_user">@HttpContextAccessor.HttpContext.Session.GetString(Common.SESSION_USER_FULLNAME)</span>
+                <span class="name_user">@UserFullName</span>
             </div>
 
             <a type="button" class="btn btn_logout btn-danger" href="/login/logout">
@@ -116,32 +129,32 @@
                    aria-expanded="false"
                    id="dropdownMenuLink" data-bs-toggle="dropdown"
                    aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars icon_mb"></i>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item link_header" data-link-name="dashboard" href="/dashboard">Theo dõi và cài đặt</a></li>
-                    <li><a class="dropdown-item link_header" data-link-name="result" href="/result">Lịch sử nạp khí</a></li>
-                    <li><a class="dropdown-item link_header" data-link-name="activity" href="/activity">Hoạt động</a></li>
-                    <li><a class="dropdown-item link_header" data-link-name="chart" href="/chart">Thống kê</a></li>
-                    @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
+                    <li><a class="dropdown-item link_header_mb" data-link-name="dashboard" href="/dashboard">Theo dõi và cài đặt</a></li>
+                    <li><a class="dropdown-item link_header_mb" data-link-name="result" href="/result">Lịch sử nạp khí</a></li>
+                    <li><a class="dropdown-item link_header_mb" data-link-name="activity" href="/activity">Hoạt động</a></li>
+                    <li><a class="dropdown-item link_header_mb" data-link-name="chart" href="/chart">Thống kê</a></li>
+                    @if (isAdmin == true)
                     {
-                        <li><a class="dropdown-item link_header" data-link-name="employee" href="/employee">Nhân viên</a></li>
+                        <li><a class="dropdown-item link_header link_header_mb" data-link-name="employee" href="/employee">Nhân viên</a></li>
                     }
                     <li>
-                        <div class="dropdown-item" id="btn-option">
+                        <div class="dropdown-item link_header_mb" id="btn-option">
                             Tùy chọn
                             <div class="menu-options shadow-sm">
-                                <div class="item-menu-options swapToMenuDoc">Menu dọc</div>
+                                <div class="item-menu-options swapToMenuDoc link_header_mb" style="padding-left:5px; padding-right:5px;">Menu dọc</div>
 
                                 <div class="item-menu-options">
                                     <form method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
-                                        @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+                                        @if (darkMenu == true)
                                         {
-                                            <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ sáng</button>
+                                            <button class="button-swap-menu link_header_mb" style="padding-left:5px; padding-right:5px;" value=@UserID name="employee_id" type="submit">Chế độ sáng</button>
                                         }
                                         else
                                         {
-                                            <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ tối</button>
+                                            <button class="button-swap-menu link_header_mb" style="padding-left:5px; padding-right:5px;" value=@UserID name="employee_id" type="submit">Chế độ tối</button>
                                         }
                                     </form>
                                 </div>
@@ -167,7 +180,7 @@
                         <li class="nav-item">
                             <a style="font-size:18px;" class="nav-link link_header" data-link-name="chart" href="/chart">Thống kê</a>
                         </li>
-                        @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
+                        @if (isAdmin == true)
                         {
                             <li class="nav-item">
                                 <a style="font-size:18px;" class="nav-link link_header" data-link-name="employee" href="/employee">Nhân viên</a>
@@ -188,13 +201,13 @@
                         </li>
                         <li class="nav-item">
                             <form style="font-size:13px;" class="nav-link text-primary" method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
-                                @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1)
+                                @if (darkMenu == true)
                                 {
-                                    <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ sáng</button>
+                                    <button class="button-swap-menu" value=@UserID name="employee_id" type="submit">Chế độ sáng</button>
                                 }
                                 else
                                 {
-                                    <button class="button-swap-menu" value=@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) name="employee_id" type="submit">Chế độ tối</button>
+                                    <button class="button-swap-menu" value=@UserID name="employee_id" type="submit">Chế độ tối</button>
                                 }
                             </form>
                         </li>

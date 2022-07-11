@@ -1,0 +1,32 @@
+﻿
+.item-menu-options:hover {
+    background-color: var(--hover-item-menu-color);
+    color: white;
+}
+#navbar-menu-ngang {
+    background-color: #242526;
+}
+.link_header {
+    color: #e1e3e8 !important;
+}
+
+    .link_header:hover {
+        color: #fff !important;
+    }
+
+.dropdown-menu, .dropdown-item, menu-options {
+    background-color: #242526;
+    color: #e1e3e8;
+}
+
+.link_header_mb:hover {
+    background-color: white !important;
+    color: black !important;
+}
+#btn-option:hover .menu-options {
+    background-color: #3a3b3c;
+    color: white;
+}
+.icon_mb {
+    color: #e4e6eb !important;
+}

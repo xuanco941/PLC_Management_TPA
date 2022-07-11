@@ -1,31 +1,46 @@
 ﻿@{
     Layout = "_Layout";
 }
-<link rel="stylesheet" href="~/css/Light/Dashboard.css">
+@inject IHttpContextAccessor HttpContextAccessor
 
-<div class="row p-3 shadow-lg mb-2 mt-2 bg-white rounded" style="display:flex;justify-content:space-evenly;">
-    <div class="col-12" style="text-align:center; color:#000">
+<link rel="stylesheet" href="~/css/Dashboard.css">
+
+@{
+    bool darkMenu = HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1 ? true : false;
+}
+
+@if (darkMenu == true)
+{
+    <link rel="stylesheet" href="~/css/Dark/DashboardDark.css" />
+}
+else
+{
+    <link rel="stylesheet" href="~/css/Light/DashboardLight.css" />
+}
+
+<div class="row p-3 shadow-lg mb-2 mt-2 rounded row-parameter-bg-color row-parameter-bg">
+    <div class="col-12 header-parameter">
         <h2>Oxy</h2>
     </div>
-    <div class="col-3 card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">Áp suất nạp(bar)</div>
         <div class="card-body">
             <h5 class="card-title">0</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-success mb-3" style="max-width: 18rem;">
         <div class="card-header">Thể tích nạp</div>
         <div class="card-body">
             <h5 class="card-title">100</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-danger mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-danger mb-3" style="max-width: 18rem;">
         <div class="card-header">Thời gian áp suất lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">110</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-info mb-3" style="max-width: 18rem;">
         <div class="card-header">Thời gian lưu lượng lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">32</h5>
@@ -35,29 +50,29 @@
 
 
 
-<div class="row p-3 shadow-lg mb-2 bg-white rounded" style="display:flex;justify-content:space-evenly;">
-    <div class="col-12" style="text-align:center; color:#000">
+<div class="row p-3 shadow-lg mb-2 row-parameter-bg-color row-parameter-bg rounded" >
+    <div class="col-12 header-parameter" >
         <h2>Nitor</h2>
     </div>
-    <div class="col-3 card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">Áp suất nạp(bar)</div>
         <div class="card-body">
             <h5 class="card-title">0</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-success mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-success mb-3" style="max-width: 18rem;">
         <div class="card-header">Thể tích nạp</div>
         <div class="card-body">
             <h5 class="card-title">100</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-danger mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-danger mb-3" style="max-width: 18rem;">
         <div class="card-header">Thời gian áp suất lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">110</h5>
         </div>
     </div>
-    <div class="col-3 card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="col-3 card text-parameter bg-info mb-3" style="max-width: 18rem;">
         <div class="card-header">Thời gian lưu lượng lấy mẫu</div>
         <div class="card-body">
             <h5 class="card-title">32</h5>
@@ -67,7 +82,7 @@
 
 
 
-<div class="row bg-white p-3 shadow-lg mb-3 rounded">
+<div class="row row-parameter-bg-color p-3 shadow-lg mb-3 rounded">
     <div class="col-12 col-md-5">
         <div class="tile">
             <div class="embed-responsive embed-responsive-16by9">
@@ -75,7 +90,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-7 card text-black bg-light">
+    <div class="col-12 col-md-7 card card-setting">
         <h4 class="card-header text-center ">Cài đặt</h4>
         <div class="card-body">
             <div>
@@ -84,11 +99,11 @@
                 <p class="text-muted" style="font-size:14px;">Tự động ngắt khi đạt áp suất và thể tích nạp: Bật</p>
             </div>
 
-            <div style="width:100%; height:1px; background-color:rgba(0,0,0,0.1); margin-top:35px;margin-bottom:35px;"></div>
+            <div class="separate"></div>
 
             <form>
                 <div class="form-group mb-3" style="display:flex; align-items:center;">
-                    <input type="text" class="form-control" id="formGroupExampleInput" readonly placeholder="Tự động ngắt khi đạt áp suất và thể tích nạp" style="background-color:#fff;">
+                    <input type="text" class="form-control bg-color-input" id="formGroupExampleInput" readonly placeholder="Tự động ngắt khi đạt áp suất và thể tích nạp">
 
                     <!-- Rounded switch -->
                     <label class="switch" style="min-width:60px; position:absolute; right:30px;">
@@ -97,13 +112,13 @@
                     </label>
                 </div>
                 <div class="form-group mb-3">
-                    <input type="number" class="form-control" id="" placeholder="Áp suất (bar)">
+                    <input type="number" class="form-control bg-color-input" id="" placeholder="Áp suất (bar)">
                 </div>
                 <div class="form-group mb-3">
-                    <input type="number" class="form-control" id="" placeholder="Thời gian nạp giới hạn (phút)">
+                    <input type="number" class="form-control bg-color-input" id="" placeholder="Thời gian nạp giới hạn (phút)">
                 </div>
                 <div class="form-group mb-3">
-                    <input type="number" class="form-control" id="" placeholder="Thời gian tự động lưu bản ghi (giây/lần)">
+                    <input type="number" class="form-control bg-color-input" id="" placeholder="Thời gian tự động lưu bản ghi (giây/lần)">
                 </div>
             </form>
 
@@ -139,7 +154,8 @@
                     'rgb(255, 205, 86)',
                     'rgb(201, 203, 207)',
                     'rgb(54, 162, 235)'
-                ]
+                ],
+                borderColor:'#fff'
             }]
         };
 

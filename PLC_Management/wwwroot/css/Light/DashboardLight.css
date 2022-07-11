@@ -1,0 +1,47 @@
+﻿.slider {
+    background-color: #ccc;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+.row-parameter-bg-color {
+    background-color: #ffffff;
+}
+.header-parameter {
+    text-align: center;
+    color: #000
+}
+.text-parameter{
+    color:white;
+}
+.card-setting {
+    color: black;
+    background-color: #f8f9fa;
+}
+.separate {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1);
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.bg-color-input {
+    background-color: #fff !important;
+}

@@ -55,7 +55,7 @@ public class LoginController : Controller
             {
                 SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
                 sqlConnection.Open();
-                string sql = $"select DarkMenu from ClientSetting where Employee_ID = {employee.ID}";
+                string sql = $"select DarkMode from ClientSetting where Employee_ID = {employee.ID}";
                 SqlCommand command = new SqlCommand(sql, sqlConnection);
                 SqlDataReader sqlDataReader = command.ExecuteReader();
                 while (sqlDataReader.Read())
@@ -66,7 +66,7 @@ public class LoginController : Controller
             }
             catch
             {
-                darkMenu = false;
+                // 
             }
             if (darkMenu == true)
             {

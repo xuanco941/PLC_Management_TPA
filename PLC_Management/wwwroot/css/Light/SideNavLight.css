@@ -1,0 +1,69 @@
+﻿.sidenav::before {
+    content: "";
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background-color: var(--bg-menu-color);
+    right: -20px;
+    top: calc(50% - 70px);
+    transform: rotate(45deg);
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.menu_sidenav {
+    background-color: var(--bg-menu-color);
+}
+
+.head_menu_sidenav::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    bottom: 0px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.head_menu_sidenav a:hover {
+    color: var(--text-color-menu);
+}
+
+.item_menu {
+    color: var(--text-color-menu);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+    .item_menu:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: black;
+    }
+
+.user {
+    background-color: var(--bg-menu-color);
+}
+
+    .user::before {
+        content: "";
+        position: absolute;
+        width: 90%;
+        top: 0px;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+.name_user {
+    color: var(--text-color-menu);
+}
+
+.menu-option-sidenav {
+    background-color: rgb(255 255 255 / 10%);
+}
+
+.item-menu-options-sidenav {
+    color: white;
+}
+
+    .item-menu-options-sidenav:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: black;
+    }
