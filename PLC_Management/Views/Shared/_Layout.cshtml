@@ -197,22 +197,22 @@
                 <div class="collapse navbar-collapse" style="flex-grow:unset;" id="navbar2">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width:100%;display:flex;justify-content:end;flex-wrap:nowrap;">
                         <li class="nav-item">
-                            <span style="font-size:13px;" class="nav-link swapToMenuDoc text-primary">Menu dọc</span>
+                            <span style="font-size:13px;" class="nav-link swapToMenuDoc text-color-option">Menu dọc</span>
                         </li>
                         <li class="nav-item">
-                            <form style="font-size:13px;" class="nav-link text-primary" method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
+                            <form style="font-size:13px;" class="nav-link" method="post" asp-action="DarkMode" asp-controller="ClientSetting" enctype="multipart/form-data">
                                 @if (darkMenu == true)
                                 {
-                                    <button class="button-swap-menu" value=@UserID name="employee_id" type="submit">Chế độ sáng</button>
+                                    <button class="button-swap-menu text-color-option" value=@UserID name="employee_id" type="submit">Chế độ sáng</button>
                                 }
                                 else
                                 {
-                                    <button class="button-swap-menu" value=@UserID name="employee_id" type="submit">Chế độ tối</button>
+                                    <button class="button-swap-menu text-color-option" value=@UserID name="employee_id" type="submit">Chế độ tối</button>
                                 }
                             </form>
                         </li>
                         <li class="nav-item">
-                            <a style="font-size:13px;" class="nav-link text-danger" href="/login/logout">Đăng xuất</a>
+                            <a style="font-size:13px;" class="nav-link text-danger text-color-option-logout" href="/login/logout">Đăng xuất</a>
                         </li>
 
                     </ul>

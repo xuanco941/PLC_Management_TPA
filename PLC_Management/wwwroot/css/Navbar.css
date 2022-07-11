@@ -19,7 +19,9 @@
 .swapToMenuDoc{
     cursor:pointer;
 }
-
+.text-color-option:hover, .text-color-option-logout:hover {
+    font-weight: 600;
+}
 @media (max-width: 1350px) {
     .link_header {
         font-size:15px !important;
