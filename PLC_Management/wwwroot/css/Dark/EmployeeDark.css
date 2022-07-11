@@ -1,0 +1,14 @@
+﻿.h1-header,.modal-title, .item_modal {
+    color: #e4e6eb;
+}
+.bg-color-dark {
+    background-color: #242526 !important;
+}
+#table, tr, td, th {
+    color: #e4e6eb !important;
+    background-color: #242526 !important;
+    --bs-table-accent-bg: none;
+}
+.modal-content {
+    background-color: #242526 !important;
+}

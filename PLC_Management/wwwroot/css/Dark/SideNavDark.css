@@ -3,7 +3,7 @@
     position: absolute;
     height: 70px;
     width: 70px;
-    background-color: var(--bg-menu-color);
+    background-color: #b9b8b8;
     right: -20px;
     top: calc(50% - 70px);
     transform: rotate(45deg);
@@ -30,11 +30,11 @@
 
 .item_menu {
     color: var(--text-color-menu);
-    background-color: rgba(255, 255, 255, 0.14);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
     .item_menu:hover {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.4);
         color: black;
     }
 

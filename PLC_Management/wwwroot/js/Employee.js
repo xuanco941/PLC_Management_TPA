@@ -101,12 +101,11 @@ btnSave.addEventListener("click", (event) => {
             body: JSON.stringify(employee)
         }).then(res => res.json())
             .then((dataUser) => {
-                trElm[0].children[0].textContent = dataUser.id;
-                trElm[0].children[1].textContent = dataUser.fullName;
-                trElm[0].children[2].textContent = dataUser.username;
-                trElm[0].children[3].textContent = dataUser.password;
-                trElm[0].children[4].textContent = dataUser.department;
-                trElm[0].children[5].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
+                trElm[0].children[0].textContent = dataUser.fullName;
+                trElm[0].children[1].textContent = dataUser.username;
+                trElm[0].children[2].textContent = dataUser.password;
+                trElm[0].children[3].textContent = dataUser.department;
+                trElm[0].children[4].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
                 //Toast
                 ActiveToast('success', 'Thông báo', `Đã nhật thông tin tài khoản của ${dataUser.fullName}.`, 5);
             })

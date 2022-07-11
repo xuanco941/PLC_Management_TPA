@@ -1,12 +1,12 @@
 ﻿.menu-options {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 .item-menu-options:hover {
     background-color: var(--hover-item-menu-color);
     color: white;
 }
 #navbar-menu-ngang {
-    background-color: #e3f2fd;
+    background-color: #ffffff;
 }
 .text-color-option {
     color: #401D83 !important;

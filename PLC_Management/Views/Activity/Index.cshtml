@@ -2,9 +2,18 @@
     Layout = "_Layout";
 }
 @using PLC_Management.Models.ActivityModel
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    bool darkMenu = HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1 ? true : false;
+}
 
 <link rel="stylesheet" href="~/lib/the-datepicker/the-datepicker.css" />
 <link rel="stylesheet" href="~/css/Record.css" />
+@if (darkMenu == true)
+{
+    <link rel="stylesheet" href="~/css/Dark/ActivityDark.css" />
+}
 
 <div class="row">
     <div class="col-12" style="margin-top:20px; margin-bottom:20px;">
@@ -15,7 +24,7 @@
 
     <div class="col-12" style="margin-bottom:10px;">
         <div class="col-12" style="margin-bottom:10px;">
-            <select>
+            <select class="select-color-dark">
                 <option value="find_by_day">Lọc theo ngày</option>
             </select>
         </div>
@@ -48,7 +57,7 @@
 
 
 
-    <div class="col-12 shadow p-3 mb-4 bg-white rounded">
+    <div class="col-12 shadow p-3 mb-4 bg-white rounded bg-color-dark">
         <div id="print_data">
             <!--Table-->
             <table class="table table-primary " id="table">

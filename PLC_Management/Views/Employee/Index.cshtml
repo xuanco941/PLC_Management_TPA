@@ -5,23 +5,28 @@
 }
 @{
     int? IDMain = @HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN);
+    bool darkMenu = HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_DARKMENU) == 1 ? true : false;
 }
 
 <link rel="stylesheet" href="~/css/Employee.css" />
+@if (darkMenu == true)
+{
+    <link rel="stylesheet" href="~/css/Dark/EmployeeDark.css" />
+}
+
 <div class="row ">
     <div class="col-12" style="margin-top:20px; margin-bottom:20px;">
         <h1 class="h1-header">
             Tài Khoản Thành Viên
         </h1>
     </div>
-    <div class="col-12 shadow p-3 mb-4 bg-white rounded">
+    <div class="col-12 shadow p-3 mb-4 bg-white rounded bg-color-dark">
         <!--Table-->
         <table class="table table-striped table-sm " id="table">
             <!--Table head-->
             <thead>
                 <tr>
-                    <th>Mã NV</th>
-                    <th>Họ Và Tên</th>
+                    <th>Họ Tên</th>
                     <th>Tài Khoản</th>
                     <th>Mật Khẩu</th>
                     <th>Phòng Ban</th>
@@ -38,7 +43,6 @@
                 @foreach (Employee employee in ViewBag.employees)
                 {
                     <tr data-id=@employee.ID class="table-secondary tb_elm">
-                        <td scope="row">@employee.ID</td>
                         <td>@employee.FullName</td>
                         <td class="elm_unique">@employee.Username</td>
                         <td>@employee.Password</td>

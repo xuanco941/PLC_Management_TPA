@@ -74,11 +74,12 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+    align-items:center;
 }
 
 .item_menu {
     text-align: center;
-    width: 100%;
+    width: 90%;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
