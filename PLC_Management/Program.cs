@@ -43,7 +43,8 @@ app.MapControllerRoute(
     pattern: "{controller=Login}/{action=Index}/{id?}");
 
 // dung middleware xac nhan da dang nhap chua
-app.UseMiddleware<AuthMiddlewares>();
+app.UseRemoveSessionDeadMiddleware();
+app.UseAuthMiddleware();
 
 //ket noi , chay PLC
 //MainPLC.Start();

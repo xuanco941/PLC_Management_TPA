@@ -20,6 +20,7 @@ namespace PLC_Management
 
         public const int NUMBER_ELM_ON_PAGE_ACTIVITY = 50;
 
+        public static List<int> listIdUserHasDeleted = new List<int>();
 
         public static string? Message;
     }

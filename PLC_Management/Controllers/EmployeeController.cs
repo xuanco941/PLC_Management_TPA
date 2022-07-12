@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using PLC_Management;
 using PLC_Management.Models.EmployeeModel;
+using PLC_Management.Middlewares;
 
 namespace WebApplication1.Controllers
 {
@@ -120,7 +121,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult DeleteEmployee([FromBody] Employee employee)
         {
-            // check admin
+            // check admin, admin mới có quyền xóa
             int Employee_ID = Convert.ToInt32(HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN));
             if (Rules.IsAdmin(Employee_ID) == false)
             {
@@ -132,6 +133,8 @@ namespace WebApplication1.Controllers
             EmployeeBusiness nhanVienModel = new EmployeeBusiness();
             if(nhanVienModel.DeleteEmployee(employee.ID) == true)
             {
+                //add id user to listiduserdeleted để dùng middleware chặn người đã bị xóa khỏi app thao tác
+                Common.listIdUserHasDeleted.Add(employee.ID);
                 return Json(employee.ID);
             }
             else
