@@ -1,0 +1,19 @@
+﻿.h1-header, label[for="tungay"], label[for="toingay"], label[for="Oxy"], label[for="Nitor"] {
+    color: #e4e6eb;
+}
+
+.bg-color-dark {
+    background-color: #242526 !important;
+}
+
+table, tr, td, th {
+    color: #e4e6eb !important;
+    background-color: #242526 !important;
+    --bs-table-accent-bg: none;
+}
+.modal-content-delete {
+    background-color: #242526 !important;
+}
+.modal-content {
+    color: #e4e6eb;
+}

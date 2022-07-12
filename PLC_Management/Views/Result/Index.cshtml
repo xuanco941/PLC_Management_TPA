@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="~/css/Record.css" />
 @if (darkMenu == true)
 {
-    <link rel="stylesheet" href="~/css/Dark/ActivityDark.css" />
+    <link rel="stylesheet" href="~/css/Dark/RecordDark.css" />
 }
 
 
@@ -251,7 +251,7 @@
 <div class="modal fade" id="DeleteDataCurrentPage" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <form class="modal-content" method="post" enctype="multipart/form-data">
+        <form class="modal-content modal-content-delete" method="post" enctype="multipart/form-data">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc muốn xóa dữ liệu ở trang hiện tại?</h5>
             </div>
@@ -275,7 +275,7 @@
 
             <div class="modal-footer">
                 <button type="submit" id="btnDeleteAllData" class="btn btn-secondary">Có</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Không</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Không</button>
             </div>
         </form>
     </div>

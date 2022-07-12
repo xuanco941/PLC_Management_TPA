@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "01locDs0a81HdarskhJhCjVjiASx4qLPlQaFrnyzVSs=",
+  "Hash": "fejVZR0WKMUBJ/XnX/7OP/cTWAc7J3YHZynKZEepwt0=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\audio\\toast.mp3"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Dark\\ActivityDark.css",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "css/Dark/ActivityDark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Dark\\ActivityDark.css"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management_TPA\\PLC_Management\\wwwroot\\css\\Dark\\ChartDark.css",
