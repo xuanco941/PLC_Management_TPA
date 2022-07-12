@@ -111,7 +111,7 @@ btnSave.addEventListener("click", (event) => {
             })
     }
     else {
-        alert("Hãy nhập đủ thông tin thiết yếu!!!");
+        ActiveToast('error', 'Lỗi!!!', `Hãy nhập đủ thông tin thiết yếu.`, 5);
     }
 
 

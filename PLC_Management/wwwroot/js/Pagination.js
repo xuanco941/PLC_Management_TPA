@@ -10,7 +10,7 @@
             window.location.replace(`./${link + value}`);
         }
         else {
-            alert(`Nhập số trang trong khoảng 0 - ${countPage}.`);
+            ActiveToast('error', 'Số trang không phù hợp!!!', `Nhập số trang trong khoảng 0 - ${countPage}.`, 5);
         }
     })
 })
